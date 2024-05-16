@@ -2,7 +2,7 @@ import fetch from 'node-fetch'
 
 let handler = async (m, { conn, args }) => {
   if (!args[0]) {
-    return conn.reply(m.chat, 'Please provide some text to generate the code image.', m)
+    return conn.reply(m.chat, 'Por favor ingresa el texto para generar la imágen del código', m)
   }
 
   let codeText = args.join(' ')
@@ -20,14 +20,14 @@ let handler = async (m, { conn, args }) => {
     })
 
     if (!response.ok) {
-      throw new Error('Failed to generate the code image.')
+      throw new Error('Falló al generar la imágen del código.')
     }
 
     let imageBuffer = await response.buffer()
-    conn.sendFile(m.chat, imageBuffer, 'code.png', 'Here is the code image:', m)
+    conn.sendFile(m.chat, imageBuffer, 'code.png', 'Aquí está la imagen del código:', m)
   } catch (error) {
     console.error(error)
-    conn.reply(m.chat, 'An error occurred while generating the code image.', m)
+    conn.reply(m.chat, 'Ocurrió un error mientras se generaba la imagen del código', m)
   }
 }
 

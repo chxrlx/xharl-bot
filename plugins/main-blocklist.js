@@ -11,7 +11,7 @@ let handler = async (m, { conn }) => {
     })
     .catch(err => {
       console.log(err)
-      throw 'no numbers blocked'
+      throw 'No hay números bloqueados'
     })
 }
 

@@ -230,7 +230,7 @@ export async function handler(chatUpdate) {
             let data = (await conn.onWhatsApp(jid))[0] || {}
             if (data.exists)
               m.reply(
-                `*🗂️ Plugin:* ${name}\n*👤 Sender:* ${m.sender}\n*💬 Chat:* ${m.chat}\n*💻 Command:* ${m.text}\n\n\${format(e)}`.trim(),
+                `*🗂️ Plugin:* ${name}\n*👤 Emisor:* ${m.sender}\n*💬 Chat:* ${m.chat}\n*💻 Comando:* ${m.text}\n\n\${format(e)}`.trim(),
                 data.jid
               )
           }
@@ -371,13 +371,13 @@ export async function handler(chatUpdate) {
           plugin.credit &&
           global.db.data.users[m.sender].credit < plugin.credit * 1
         ) {
-          this.reply(m.chat, `🟥 You don't have enough gold`, m)
+          this.reply(m.chat, `🟥 No tienes suficiente oro`, m)
           continue // Gold finished
         }
         if (plugin.level > _user.level) {
           this.reply(
             m.chat,
-            `🟥 Level required ${plugin.level} to use this command. \nYour level ${_user.level}`,
+            `🟥 Se requiere ser nivel ${plugin.level} para usar este comando. \nTu nivel ${_user.level}`,
             m
           )
           continue // If the level has not been reached
@@ -423,7 +423,7 @@ export async function handler(chatUpdate) {
                 let data = (await this.onWhatsApp(jid))[0] || {}
                 if (data.exists)
                   return m.reply(
-                    `*🗂️ Plugin:* ${m.plugin}\n*👤 Sender:* ${m.sender}\n*💬 Chat:* ${m.chat}\n*💻 Command:* ${usedPrefix}${command} ${args.join(' ')}\n📄 *Error Logs:*\n\n${text}`.trim(),
+                    `*🗂️ Plugin:* ${m.plugin}\n*👤 Emisor:* ${m.sender}\n*💬 Chat:* ${m.chat}\n*💻 Comando:* ${usedPrefix}${command} ${args.join(' ')}\n📄 *Error Logs:*\n\n${text}`.trim(),
                     data.jid
                   )
               }
@@ -525,7 +525,7 @@ export async function participantsUpdate({ id, participants, action }) {
             pp = await this.profilePictureUrl(user, 'image')
             ppgp = await this.profilePictureUrl(id, 'image')
           } catch (error) {
-            console.error(`Error retrieving profile picture: ${error}`)
+            console.error(`Error al obtener foto de perfil: ${error}`)
             pp = 'https://i.imgur.com/8B4jwGq.jpeg' // Assign default image URL
             ppgp = 'https://i.imgur.com/8B4jwGq.jpeg' // Assign default image URL
           } finally {
@@ -556,8 +556,8 @@ export async function participantsUpdate({ id, participants, action }) {
                 contextInfo: {
                   mentionedJid: [user],
                   externalAdReply: {
-                    title: 'ᴛʜᴇ ɢᴜʀᴜ-ʙᴏᴛ',
-                    body: 'welcome to Group',
+                    title: 'Xharl-Bot',
+                    body: 'Bienvenido al grupo',
                     thumbnailUrl: welcomeApiUrl,
                     sourceUrl: 'https://chat.whatsapp.com/F3sB3pR3tClBvVmlIkqDJp',
                     mediaType: 1,
@@ -566,7 +566,7 @@ export async function participantsUpdate({ id, participants, action }) {
                 },
               })
             } catch (error) {
-              console.error(`Error generating welcome image: ${error}`)
+              console.error(`Error al generar la imagen de bienvenida: ${error}`)
             }
           }
         }
@@ -582,7 +582,7 @@ export async function participantsUpdate({ id, participants, action }) {
             pp = await this.profilePictureUrl(user, 'image')
             ppgp = await this.profilePictureUrl(id, 'image')
           } catch (error) {
-            console.error(`Error retrieving profile picture: ${error}`)
+            console.error(`Error al obtener la foto de perfil: ${error}`)
             pp = 'https://i.imgur.com/8B4jwGq.jpeg' // Assign default image URL
             ppgp = 'https://i.imgur.com/8B4jwGq.jpeg' // Assign default image URL
           } finally {
@@ -592,7 +592,7 @@ export async function participantsUpdate({ id, participants, action }) {
             )
 
             let nthMember = groupMetadata.participants.length
-            let secondText = `Goodbye, our ${nthMember}th group member`
+            let secondText = `Adiós, nuestro ${nthMember} miembro del grupo`
 
             let leaveApiUrl = `https://welcome.guruapi.tech/leave-image?username=${encodeURIComponent(
               await this.getName(user)
@@ -613,8 +613,8 @@ export async function participantsUpdate({ id, participants, action }) {
                 contextInfo: {
                   mentionedJid: [user],
                   externalAdReply: {
-                    title: 'ᴛʜᴇ ɢᴜʀᴜ-ʙᴏᴛ',
-                    body: 'Goodbye from  Group',
+                    title: 'Xharl-Bot',
+                    body: 'Adiós del grupo',
                     thumbnailUrl: leaveApiUrl,
                     sourceUrl: 'https://chat.whatsapp.com/F3sB3pR3tClBvVmlIkqDJp',
                     mediaType: 1,
@@ -623,7 +623,7 @@ export async function participantsUpdate({ id, participants, action }) {
                 },
               })
             } catch (error) {
-              console.error(`Error generating leave image: ${error}`)
+              console.error(`Error al generar la imagen de despedida: ${error}`)
             }
           }
         }
@@ -634,7 +634,7 @@ export async function participantsUpdate({ id, participants, action }) {
         chat.sPromote ||
         this.spromote ||
         conn.spromote ||
-        `${emoji.promote} @user *is now admin*`
+        `${emoji.promote} @user *ahora es administrador*`
       ).replace('@user', '@' + participants[0].split('@')[0])
 
       if (chat.detect) {
@@ -649,7 +649,7 @@ export async function participantsUpdate({ id, participants, action }) {
         chat.sDemote ||
         this.sdemote ||
         conn.sdemote ||
-        `${emoji.demote} @user *demoted from admin*`
+        `${emoji.demote} @user *degradado de administrador*`
       ).replace('@user', '@' + participants[0].split('@')[0])
 
       if (chat.detect) {
@@ -691,53 +691,53 @@ export async function groupsUpdate(groupsUpdate) {
         chats.sDesc ||
         this.sDesc ||
         conn.sDesc ||
-        `*${emoji.desc} Description has been changed to*\n@desc`
+        `*${emoji.desc} La descripción cambió a*\n@desc`
       ).replace('@desc', groupUpdate.desc)
     } else if (groupUpdate.subject) {
       text = (
         chats.sSubject ||
         this.sSubject ||
         conn.sSubject ||
-        `*${emoji.subject} Subject has been changed to*\n@subject`
+        `*${emoji.subject} El asunto cambió a*\n@subject`
       ).replace('@subject', groupUpdate.subject)
     } else if (groupUpdate.icon) {
       text = (
         chats.sIcon ||
         this.sIcon ||
         conn.sIcon ||
-        `*${emoji.icon} Icon has been changed*`
+        `*${emoji.icon} El ícono ha sido cambiado*`
       ).replace('@icon', groupUpdate.icon)
     } else if (groupUpdate.revoke) {
       text = (
         chats.sRevoke ||
         this.sRevoke ||
         conn.sRevoke ||
-        `*${emoji.revoke} Group link has been changed to*\n@revoke`
+        `*${emoji.revoke} El link del grupo ha sido cambiado a*\n@revoke`
       ).replace('@revoke', groupUpdate.revoke)
     } else if (groupUpdate.announce === true) {
       text =
         chats.sAnnounceOn ||
         this.sAnnounceOn ||
         conn.sAnnounceOn ||
-        `*${emoji.announceOn} Group is now closed!*`
+        `*${emoji.announceOn} ¡El grupo ahora está cerrado!*`
     } else if (groupUpdate.announce === false) {
       text =
         chats.sAnnounceOff ||
         this.sAnnounceOff ||
         conn.sAnnounceOff ||
-        `*${emoji.announceOff} Group is now open!*`
+        `*${emoji.announceOff} ¡El grupo ahora está abierto!*`
     } else if (groupUpdate.restrict === true) {
       text =
         chats.sRestrictOn ||
         this.sRestrictOn ||
         conn.sRestrictOn ||
-        `*${emoji.restrictOn} Group is now restricted to participants only!*`
+        `*${emoji.restrictOn} ¡El grupo ahora está restringido solo para participantes!*`
     } else if (groupUpdate.restrict === false) {
       text =
         chats.sRestrictOff ||
         this.sRestrictOff ||
         conn.sRestrictOff ||
-        `*${emoji.restrictOff} Group is now restricted to admins only!*`
+        `*${emoji.restrictOff} ¡El grupo ahora está restringido solo para administradores!*`
     }
 
     if (!text) continue
@@ -767,7 +767,7 @@ export async function deleteUpdate(message) {
       `
             ≡ deleted a message 
             ┌─⊷  𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀 
-            ▢ *Number :* @${participant.split`@`[0]} 
+            ▢ *Número:* @${participant.split`@`[0]} 
             └─────────────
             `.trim(),
       msg,
@@ -818,15 +818,15 @@ export async function presenceUpdate(presenceUpdate) {
   if (user?.afk && status === 'composing' && user.afk > -1) {
     if (user.banned) {
       user.afk = -1
-      user.afkReason = 'User Banned Afk'
+      user.afkReason = 'Usuario Baneado AFK'
       return
     }
 
     await console.log('AFK')
     const username = nouser[0].split('@')[0]
     const timeAfk = new Date() - user.afk
-    const caption = `\n@${username} has stopped being AFK and is currently typing.\n\nReason: ${
-      user.afkReason ? user.afkReason : 'No Reason'
+    const caption = `\n@${username} ha dejado de estar AFK y está escribiendo.\n\nRazón: ${
+      user.afkReason ? user.afkReason : 'Sin razón'
     }\nFor the past ${timeAfk.toTimeString()}.\n`
 
     this.reply(id, caption, null, {
@@ -857,28 +857,28 @@ global.dfail = (type, m, conn) => {
     restrict: '⛔',
   }
 
-  const msg = {
-    owner: `*${emoji.owner} Owner's Query*\n
-    ${userTag} This command can only be used by the *Bot Owner*!`,
-    moderator: `*${emoji.moderator} Moderator's Query*\n
-    ${userTag} This command can only be used by *Moderators*!`,
-    premium: `*${emoji.premium} Premium Query*\n
-    ${userTag} This command is only for *Premium Members*!`,
-    group: `*${emoji.group} Group Query*\n
-    ${userTag} This command can only be used in *Group Chats*!`,
-    private: `*${emoji.private} Private Query*\n
-    ${userTag} This command can only be used in *Private Chats*!`,
-    admin: `*${emoji.admin} Admin's Query*\n
-    ${userTag} This command is only for *Group Admins*!`,
-    botAdmin: `*${emoji.botAdmin} Bot Admin's Query*\n
-    ${userTag} Make the bot an *Admin* to use this command!`,
-    unreg: `*${emoji.unreg} Registration Query*\n
-    ${userTag} Please register to use this feature by typing:\n\n*#register name.age*\n\nExample: *#register ${m.name}.18*!`,
-    nsfw: `*${emoji.nsfw} NSFW Query*\n
-    ${userTag} NSFW is not active. Please contact the Group admin to enable this feature!`,
-    restrict: `*${emoji.restrict} Inactive Feature Query*\n
-    ${userTag} This feature is *disabled*!`,
-  }[type]
+const msg = {
+    owner: `*${emoji.owner} Consulta del Propietario*\n
+    ${userTag} ¡Este comando solo puede ser utilizado por el *Propietario del Bot*!`,
+    moderator: `*${emoji.moderator} Consulta del Moderador*\n
+    ${userTag} ¡Este comando solo puede ser utilizado por *Moderadores*!`,
+    premium: `*${emoji.premium} Consulta Premium*\n
+    ${userTag} ¡Este comando es solo para *Miembros Premium*!`,
+    group: `*${emoji.group} Consulta de Grupo*\n
+    ${userTag} ¡Este comando solo puede ser utilizado en *Chats de Grupo*!`,
+    private: `*${emoji.private} Consulta Privada*\n
+    ${userTag} ¡Este comando solo puede ser utilizado en *Chats Privados*!`,
+    admin: `*${emoji.admin} Consulta del Administrador*\n
+    ${userTag} ¡Este comando es solo para *Administradores del Grupo*!`,
+    botAdmin: `*${emoji.botAdmin} Consulta del Administrador del Bot*\n
+    ${userTag} ¡Haz que el bot sea un *Administrador* para usar este comando!`,
+    unreg: `*${emoji.unreg} Consulta de Registro*\n
+    ${userTag} Por favor, regístrate para usar esta función escribiendo:\n\n*!register nombre.edad*\n\nEjemplo: *#register ${m.name}.18*!`,
+    nsfw: `*${emoji.nsfw} Consulta NSFW*\n
+    ${userTag} El contenido NSFW no está activo. ¡Por favor, contacta al administrador del Grupo para habilitar esta función!`,
+    restrict: `*${emoji.restrict} Consulta de Función Inactiva*\n
+    ${userTag} ¡Esta función está *deshabilitada*!`,
+}[type]
   if (msg) return m.reply(msg)
 }
 

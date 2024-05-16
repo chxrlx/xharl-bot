@@ -7,8 +7,8 @@ const getBuffer = async url => {
     const buffer = await response.arrayBuffer()
     return Buffer.from(buffer)
   } catch (error) {
-    console.error('Failed to get buffer', error)
-    throw new Error('Failed to get buffer')
+    console.error('Falló al obtener el buffer', error)
+    throw new Error('Falló al obtener el buffer')
   }
 }
 
@@ -20,7 +20,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     who = m.chat
   }
 
-  if (!who) throw `✳️ Tag or mention someone\n\n📌 Example : ${usedPrefix + command} @tag`
+  if (!who) throw `✳️ Etiqueta o menciona a alguien\n\n📌 Ejemplo: ${usedPrefix + command} @tag`
 
   let name = conn.getName(who)
   let name2 = conn.getName(m.sender)

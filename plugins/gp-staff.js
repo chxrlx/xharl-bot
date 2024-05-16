@@ -9,7 +9,7 @@ let handler = async (m, { conn, participants, groupMetadata, args }) => {
     m.chat.split`-`[0] + '@s.whatsapp.net'
 
   let text = `
-≡ *GROUP ADMINS* _${groupMetadata.subject}_
+≡ *ADMINS DEL GRUPO* _${groupMetadata.subject}_
 
 ┌─⊷ *ADMINS*
 ▢ ${listAdmin}

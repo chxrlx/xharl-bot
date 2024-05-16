@@ -14,7 +14,7 @@ let handler = async (m, { conn }) => {
       avatar: pp,
     }),
     'gay.png',
-    `🏳️‍🌈  *Gay :* ${name}\n\nWho wants to rape this gay☠️? `,
+    `🏳️‍🌈  *Gay :* ${name}\n\n¿Quién quiere culearse a este gay☠️? `,
     m
   )
 }

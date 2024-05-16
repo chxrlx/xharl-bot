@@ -5,9 +5,9 @@ export function before(m) {
   if (user.afk > -1) {
     m.reply(
       `
-  ✅ You stopped being AFK 
-${user.afkReason ? ' \n▢ *Reason :* ' + user.afkReason : ''}
-▢ *AFK Duration :* ${(new Date() - user.afk).toTimeString()}
+  ✅ Paraste de estar AFK
+${user.afkReason ? ' \n▢ *Razón:* ' + user.afkReason : ''}
+▢ *Hace:* ${(new Date() - user.afk).toTimeString()}
   `.trim()
     )
     user.afk = -1
@@ -22,10 +22,10 @@ ${user.afkReason ? ' \n▢ *Reason :* ' + user.afkReason : ''}
     let reason = user.afkReason || ''
     m.reply(
       `
-💤 The human u mentioned is afk 
+💤 El pendejo que has mencionado está AFK 
 
-${reason ? '▢ *Reason* : ' + reason : '▢ *Reason* : Without reason'}
-▢ *AFK Duration :* ${(new Date() - afkTime).toTimeString()}
+${reason ? '▢ *Razón*: ' + reason : '▢ *Razón* : sin razón'}
+▢ *Hace:* ${(new Date() - afkTime).toTimeString()}
   `.trim()
     )
   }

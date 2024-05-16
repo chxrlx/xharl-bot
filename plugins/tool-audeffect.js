@@ -36,7 +36,7 @@ let handler = async (m, { conn, args, __dirname, usedPrefix, command }) => {
         })
       })
     } else
-      throw `*Reply your audio or vn that will be modified, using the command ${usedPrefix + command}*`
+      throw `*Responde a un audio o nota de voz, usando el siguiente comando: ${usedPrefix + command}*`
   } catch (e) {
     throw e
   }

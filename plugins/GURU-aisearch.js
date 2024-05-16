@@ -6,7 +6,7 @@ const endpoint = 'https://v2-guru-indratensei.cloud.okteto.net/perplexity?query=
 let handler = async (m, { text, conn, usedPrefix, command }) => {
   try {
     if (!text && !(m.quoted && m.quoted.text)) {
-      throw `Please provide some text or quote a message to get a response.`
+      throw `Por favor ingresa un texto o responde algún mensaje para que pueda buscar información.`
     }
 
     if (!text && m.quoted && m.quoted.text) {

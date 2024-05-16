@@ -6,7 +6,7 @@ const handler = async (m, { conn, command, text, args, usedPrefix }) => {
   conn.gogleit = conn.gogleit ? conn.gogleit : {}
   await conn.reply(m.chat, wait, m)
   const result = await googleresult(text)
-  const infoText = `✦ ──『 *GOOGLE SEARCH* 』── ⚝ \n\n [ ⭐ Reply the number of the desired search result to get the screenshot of the website]. \n\n`
+  const infoText = `✦ ──『 *GOOGLE SEARCH* 』── ⚝ \n\n [ ⭐ Responde con el número de la lista para obtener una captura de pantalla de la página]. \n\n`
   const orderedLinks = result.allLinks.map((linkk, index) => {
     const sectionNumber = index + 1
     const { title, link } = linkk
@@ -46,10 +46,10 @@ handler.before = async (m, { conn }) => {
       )
     ).buffer()
 
-    await conn.sendFile(m.chat, response, 'google.jpg', 'Tada! Here is your result', m)
+    await conn.sendFile(m.chat, response, 'google.jpg', 'Aquí está tu resultado', m)
   } else {
     m.reply(
-      'Invalid sequence number. Please select the appropriate number from the list above.\nBetween 1 to ' +
+      'Número de secuencia inválido. Por favor selecciona un número de la lista de arriba\nEntre 1 y ' +
         result.allLinks.length
     )
   }
@@ -65,7 +65,7 @@ async function googleresult(query) {
   try {
     const res = await googleIt({ query })
 
-    if (!res.length) return 'Sorry, no video results were found for this search.'
+    if (!res.length) return 'Sorry, no se encontraron videos para la consulta.'
 
     const allLinks = res.map(video => ({
       title: video.title,

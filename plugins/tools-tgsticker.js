@@ -6,7 +6,7 @@ var handler = async (m, { conn, args }) => {
     let res = await Telesticker(args[0])
     await m.reply(`Sending ${res.length} stickers...`)
     if (m.isGroup && res.length > 30) {
-      await m.reply('Number of stickers more than 30, bot will send it in private chat.')
+      await m.reply('Son más de 30 stickers, enviando en privado...')
       for (let i = 0; i < res.length; i++) {
         conn.sendMessage(m.sender, { sticker: { url: res[i].url } })
       }
@@ -32,7 +32,7 @@ export default handler
 //Thanks Xfarr : https://github.com/xfar05
 async function Telesticker(url) {
   return new Promise(async (resolve, reject) => {
-    if (!url.match(/(https:\/\/t.me\/addstickers\/)/gi)) throw 'Enter your url telegram sticker'
+    if (!url.match(/(https:\/\/t.me\/addstickers\/)/gi)) throw 'Ingresa una URL válida de Telegram Sticker Pack'
     const packName = url.replace('https://t.me/addstickers/', '')
     const data = await axios(
       `https://api.telegram.org/bot891038791:AAHWB1dQd-vi0IbH2NjKYUk-hqQ8rQuzPD4/getStickerSet?name=${encodeURIComponent(packName)}`,

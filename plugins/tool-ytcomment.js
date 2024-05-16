@@ -10,7 +10,7 @@ let handler = async (m, { conn, text }) => {
       username: conn.getName(m.sender),
     }),
     'error.png',
-    '*THANKS FOR COMMENT*',
+    '*Gracias por comentar*',
     m
   )
 }

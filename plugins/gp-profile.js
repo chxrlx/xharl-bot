@@ -9,7 +9,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
       : m.fromMe
         ? conn.user.jid
         : m.sender
-  if (!(who in global.db.data.users)) throw `✳️ The user is not found in my database`
+  if (!(who in global.db.data.users)) throw `✳️ El usuario no está registrado en la base de datos`
   let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './Guru.jpg')
   let user = global.db.data.users[who]
   let about = ((await conn.fetchStatus(who).catch(console.error)) || {}).status || ''
@@ -22,19 +22,19 @@ let handler = async (m, { conn, usedPrefix, command }) => {
   let sn = createHash('md5').update(who).digest('hex')
 
   // • @${who.replace(/@.+/, '')}
-  let str = `*🪪 Name:* ${username}${about ? '\n\n 🎌 *Bio:* ' + about : ''}
+  let str = `*🪪 Nombre:* ${username}${about ? '\n\n 🎌 *Bio:* ' + about : ''}
 
-*⚠️ Warnings:* ${warn}/${maxwarn}
+*⚠️ Advertencias:* ${warn}/${maxwarn}
 
-*💰 Gold :* ${credit}
+*💰 Oro:* ${credit}
 
-*✨ Level* : ${level}
+*✨ Nivel* : ${level}
 
 *⬆️ XP* : Total ${exp} (${user.exp - min} / ${xp})\n${math <= 0 ? `Ready for *${usedPrefix}levelup*` : `*${math}xp* missing to level up`}
 
-*🏆 Rank:* ${role}
+*🏆 Rango:* ${role}
 
-*📇 Registered :* ${registered ? 'Yes' : 'No'}
+*📇 Registrado :* ${registered ? 'Yes' : 'No'}
 
 *⭐ Premium* : ${prem ? 'Yes' : 'No'}
 `

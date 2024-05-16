@@ -9,10 +9,10 @@ let handler = async (m, { text, usedPrefix, command }) => {
 
       if (data.status && data.result && data.result.length > 0) {
         const tempMails = data.result.join('\n')
-        const replyMessage = `*Temporary Email Addresses:*\n\n${tempMails}\n\n use \`\`\`\.checkmail <mail-address>\`\`\`\ if you want to check inbox of any temp mail used from above`
+        const replyMessage = `*Direcciones de E-Mail temporales:*\n\n${tempMails}\n\n use \`\`\`\.checkmail <mail-address>\`\`\`\ if you want to check inbox of any temp mail used from above`
         m.reply(replyMessage)
       } else {
-        m.reply('No temporary email addresses found.')
+        m.reply('No se encontraron direcciones de correo electrónico temporales.')
       }
     } catch (error) {
       console.error('Error:', error)
@@ -48,14 +48,14 @@ ${message.text}
           `
           })
           .join('\n\n---\n\n')
-        const replyMessage = `*Messages in* ${text}:\n\n${messages}`
+        const replyMessage = `*Mensajes en* ${text}:\n\n${messages}`
         m.reply(replyMessage)
       } else {
-        m.reply(`No messages found in ${text}.`)
+        m.reply(`No se encontraron mensajes en ${text}.`)
       }
     } catch (error) {
       console.error('Error:', error)
-      m.reply(`Failed to check messages in ${text}.`)
+      m.reply(`Falló al revisar mensajes ${text}.`)
     }
   }
 }

@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 
 let handler = async (m, { conn, text }) => {
-  if (!text) throw 'Please provide a word to search for.'
+  if (!text) throw 'Por favor ingresa una palabra para buscar en el diccionario.'
 
   const url = `https://api.urbandictionary.com/v0/define?term=${encodeURIComponent(text)}`
 
@@ -13,14 +13,14 @@ let handler = async (m, { conn, text }) => {
   }
 
   if (!json.list.length) {
-    throw 'Word not found in the dictionary.'
+    throw 'No se encontraron definiciones para la palabra ingresada.'
   }
 
   const firstEntry = json.list[0]
   const definition = firstEntry.definition
-  const example = firstEntry.example ? `*Example:* ${firstEntry.example}` : ''
+  const example = firstEntry.example ? `*Ejemplo:* ${firstEntry.example}` : ''
 
-  const message = `*Word:* ${text}\n*Definition:* ${definition}\n${example}`
+  const message = `*Palabra:* ${text}\n*Definición:* ${definition}\n${example}`
   conn.sendMessage(m.chat, { text: message }, 'extendedTextMessage', { quoted: m })
 }
 

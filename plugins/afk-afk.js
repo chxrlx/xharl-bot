@@ -6,12 +6,12 @@ let handler = async (m, { text, conn }) => {
   user.afkReason = text
   m.reply(`
   😴 *AFK* 
-You are now afk until u send a message 
-▢ *User:* ${conn.getName(m.sender)} 
-▢ *Reason:* ${text ? text : ''}
+Ahora estás AFK hasta que envíes un mensaje 
+▢ *Usuario:* ${conn.getName(m.sender)} 
+▢ *Razón:* ${text ? text : ''}
   `)
 }
-handler.help = ['afk <reason>']
+handler.help = ['afk <razón>']
 handler.tags = ['fun']
 handler.command = ['afk']
 handler.group = true

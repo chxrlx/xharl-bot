@@ -5,10 +5,10 @@ let handler = async (m, { conn, text, args, usedPrefix, command }) => {
   if (!args[0] && m.quoted && m.quoted.text) {
     args[0] = m.quoted.text
   }
-  if (!args[0] && !m.quoted) throw `Give the link of the video Tiktok or quote a tiktok link`
-  if (!args[0].match(/tiktok/gi)) throw `Verify that the link is from TikTok`
+  if (!args[0] && !m.quoted) throw `Ingresa el enlace del video de Tiktok o responde un enlace de tiktok`
+  if (!args[0].match(/tiktok/gi)) throw `Verifica que el enlace sea de Tiktok`
 
-  let txt = 'Here your Requested video'
+  let txt = 'Aquí está tu video de Tiktok 🎥'
 
   try {
     const {
@@ -30,7 +30,7 @@ let handler = async (m, { conn, text, args, usedPrefix, command }) => {
       let p = await fg.tiktok(args[0])
       conn.sendFile(m.chat, p.play, 'tiktok.mp4', txt, m)
     } catch {
-      m.reply('*An unexpected error occurred*')
+      m.reply('*Ocurrió un error inesperado*')
     }
   }
 }

@@ -16,40 +16,40 @@ let handler = async (m, { conn, usedPrefix, command }) => {
   switch (command) {
     case 'list':
       lkr =
-        '*Get ready for the ride, here are your ticket options:*\n\n' +
+        '*¡Prepárate para el viaje, aquí están tus opciones de boleto!*\n\n' +
         '🤖 *' +
         usedPrefix +
-        "botmenu* - The Bot's secret control panel. What's your command, oh great one?\n\n" +
+        "botmenu* - El panel de control secreto del Bot. ¿Qué orden tienes, oh gran ser?\n\n" +
         '👑 *' +
         usedPrefix +
-        "ownermenu* - The sacred scroll only for the chosen one. Yep, that's you, Boss!\n\n" +
+        "ownermenu* - El pergamino sagrado solo para el elegido. Sip, eres tú, ¡Jefe!\n\n" +
         '🧑‍🤝‍🧑 *' +
         usedPrefix +
-        'groupmenu* - Group shenanigans central! Unite, chat, conquer!\n\n' +
+        'groupmenu* - ¡El centro de las travesuras del grupo! Únete, chatea, ¡conquista!\n\n' +
         '📥 *' +
         usedPrefix +
-        "dlmenu* - 'DL' stands for 'Delicious Loot'. Come grab your goodies!\n\n" +
+        "dlmenu* - 'DL' significa 'Delicioso Botín'. ¡Ven a por tus regalos!\n\n" +
         '🎉 *' +
         usedPrefix +
-        "funmenu* - The bot's party hat. Games, jokes and instant ROFLs. Let's get this party started!\n\n" +
+        "funmenu* - El sombrero de fiesta del bot. Juegos, chistes y risas instantáneas. ¡Que empiece la fiesta!\n\n" +
         '💰 *' +
         usedPrefix +
-        'economymenu* - Bling bling! Your personal vault of virtual economy. Spend or save? Choose wisely!\n\n' +
+        'economymenu* - ¡Bling bling! Tu bóveda personal de economía virtual. ¿Gastar o ahorrar? ¡Elige sabiamente!\n\n' +
         '🎮 *' +
         usedPrefix +
-        'gamemenu* - Enter the gaming arena. May the odds be ever in your favor!\n\n' +
+        'gamemenu* - Entra en la arena de juego. ¡Que la suerte esté siempre de tu lado!\n\n' +
         '🎨 *' +
         usedPrefix +
-        'stickermenu* - A rainbow of stickers for your inner artist. Make your chats pop!\n\n' +
+        'stickermenu* - Un arcoíris de stickers para tu artista interior. ¡Dale vida a tus chats!\n\n' +
         '🧰 *' +
         usedPrefix +
-        "toolmenu* - Your handy-dandy toolkit. What's your pick, genius?\n\n" +
+        "toolmenu* - Tu práctico kit de herramientas. ¿Cuál eliges, genio?\n\n" +
         '🎩 *' +
         usedPrefix +
-        'logomenu* - Create a logo that screams YOU. Or whispers. You choose the volume.\n\n' +
+        'logomenu* - Crea un logo que grite TÚ. O susurre. Tú eliges el volumen.\n\n' +
         '🌙 *' +
         usedPrefix +
-        'nsfwmenu* - The After Dark menu. But remember, sharing adult secrets must be consent-based.'
+        'nsfwmenu* - El menú Después del Anochecer. Pero recuerda, compartir secretos de adultos debe ser basado en el consentimiento.'
       break
 
     case 'botmenu':
@@ -303,13 +303,13 @@ let handler = async (m, { conn, usedPrefix, command }) => {
      ┗━━━ʕ•㉨•ʔ━━━┛` //
       break
     case 'nsfwmenu':
-      lkr = `use command ${usedPrefix}nsfw` //
+      lkr = `usa el comando ${usedPrefix}nsfw` //
       break
     case 'logomenu':
-      lkr = `use ${usedPrefix}logo to see all options \ngfx cmd upto 12` //
+      lkr = `usa ${usedPrefix}logo para ver todas las opciones \ngfx cmd upto 12` //
       break
     default:
-      lkr = `Invalid command. Type ${usedPrefix}list to see available options.`
+      lkr = `Comando inválido. Escribe ${usedPrefix}list para ver las opciones disponibles.`
   }
 
   conn.sendFile(m.chat, pp, 'perfil.jpg', lkr, m, false, { mentions: [who] })

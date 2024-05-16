@@ -2,7 +2,7 @@ import fetch from 'node-fetch'
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!text && !(m.quoted && m.quoted.text)) {
-    throw `Please provide some text , Example usage ${usedPrefix}img sunnyleone`
+    throw `Por favor ingresa el texto, Ejemplo de uso ${usedPrefix}img sunnyleone`
   }
   if (!text && m.quoted && m.quoted.text) {
     text = m.quoted.text
@@ -24,7 +24,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         const imageBuffer = await response.buffer()
         images.push(imageBuffer)
       } else {
-        throw '*Image generation failed*'
+        throw '*Falló al generar imagen*'
       }
     }
 

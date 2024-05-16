@@ -2,13 +2,13 @@ import fg from 'api-dylux'
 
 const handler = async (m, { conn, args, usedPrefix, command }) => {
   if (!args[0]) {
-    throw `✳️ Please send the link of a Facebook video\n\n📌 EXAMPLE :\n*${usedPrefix + command}* https://www.facebook.com/Ankursajiyaan/videos/981948876160874/?mibextid=rS40aB7S9Ucbxw6v`
+    throw `✳️ Por favor envía el link de un vídeo de Facebook\n\n📌 Ejemplo:\n*${usedPrefix + command}* https://www.facebook.com/Ankursajiyaan/videos/981948876160874/?mibextid=rS40aB7S9Ucbxw6v`
   }
 
   const urlRegex =
     /^(?:https?:\/\/)?(?:www\.)?(?:facebook\.com|fb\.watch)\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/i
   if (!urlRegex.test(args[0])) {
-    throw '⚠️ PLEASE GIVE A VALID URL.'
+    throw '⚠️ POR FAVOR INGRESA UN LINK VÁLIDO'
   }
 
   m.react(rwait)
@@ -28,7 +28,7 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
     m.react(done)
   } catch (error) {
     console.log(error)
-    m.reply('⚠️ An error occurred while processing the request. Please try again later.')
+    m.reply('⚠️ Ocurrió un error al procesar tu solicitud, inténtalo de nuevo más tarde')
   }
 }
 

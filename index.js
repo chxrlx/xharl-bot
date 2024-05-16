@@ -81,7 +81,7 @@ async function start(file) {
 
   p.on('exit', code => {
     isRunning = false
-    console.error(chalk.red(`❌Exited with code: ${code}`))
+    console.error(chalk.red(`❌Salió con el código: ${code}`))
 
     if (code === 0) return
 
@@ -112,7 +112,7 @@ async function start(file) {
       const version = (await baileys.fetchLatestBaileysVersion()).version
       console.log(chalk.yellow(`Using Baileys version ${version}`))
     } catch (e) {
-      console.error(chalk.red(' Baileys library is not installed'))
+      console.error(chalk.red('No está instalada la librería Baileys'))
     }
   })
 }
@@ -120,12 +120,12 @@ async function start(file) {
 start('Guru.js')
 
 process.on('unhandledRejection', () => {
-  console.error(chalk.red(`Unhandled promise rejection. Bot will restart...`))
+  console.error(chalk.red(`Unhandled promise rejection. El bot se reiniciará...`))
   start('Guru.js')
 })
 
 process.on('exit', code => {
-  console.error(chalk.red(`Exited with code: ${code}`))
-  console.error(chalk.red(`Bot will restart...`))
+  console.error(chalk.red(`Salió con el código: ${code}`))
+  console.error(chalk.red(`El bot se reiniciará...`))
   start('Guru.js')
 })

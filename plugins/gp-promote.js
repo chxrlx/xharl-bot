@@ -8,11 +8,11 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
   if (!text && !m.quoted)
     return conn.reply(
       m.chat,
-      `✳️ Using the command \n *${usedPrefix + command}* @tag  (or reply to a message)`,
+      `✳️ Uso del comando \n *${usedPrefix + command}* @tag  (o responde al mensaje)`,
       m
     )
   if (number.length > 13 || (number.length < 11 && number.length > 0))
-    return conn.reply(m.chat, `✳️ Number incorrect`, m)
+    return conn.reply(m.chat, `✳️ Número incorrecto`, m)
   try {
     if (text) {
       var user = number + '@s.whatsapp.net'
@@ -24,7 +24,7 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
   } catch (e) {
   } finally {
     conn.groupParticipantsUpdate(m.chat, [user], 'promote')
-    m.reply(`✅ User promoted`)
+    m.reply(`✅ Usuario promovido con éxito`)
   }
 }
 handler.help = ['promote']

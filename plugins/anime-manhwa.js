@@ -10,7 +10,7 @@ let handler = async (m, { conn, text }) => {
   const json = await response.json()
 
   if (!response.ok) {
-    throw `An error occurred: ${json.error}`
+    throw `Ocurrió un error: ${json.error}`
   }
 
   let link = json.data[0].link
@@ -21,7 +21,7 @@ let handler = async (m, { conn, text }) => {
   let json2 = await response2.json()
 
   if (!response2.ok) {
-    throw `An error occurred: ${json2.error}`
+    throw `Ocurrió un error: ${json2.error}`
   }
   let lastEpisodeUrl = 'N/A'
 

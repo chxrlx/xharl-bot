@@ -10,7 +10,7 @@ let handler = async (m, { conn, text }) => {
 
   // If no key and text provided, show all styles of a default text
   if (words.length === 0 || !key || !textToStyle) {
-    let defaultText = 'GURU BOT'
+    let defaultText = 'XHARL BOT'
     let styledTexts = await Promise.all(
       [...Array(34).keys()].map(i => stylizeText(defaultText, i + 1))
     )
@@ -20,7 +20,7 @@ let handler = async (m, { conn, text }) => {
 
   // Check if the key is a number between 1 and 34
   if (!Number.isInteger(+key) || +key < 1 || +key > 34) {
-    throw 'Invalid key. Please provide a number between 1 and 34.'
+    throw 'Key inválida. Por favor ingresa un número entre 1 y 34.'
   }
 
   // Get the styled text

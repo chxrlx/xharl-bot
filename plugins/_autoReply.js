@@ -10,7 +10,7 @@ export async function all(m) {
     this.sendMessage(
       m.chat,
       {
-        text: `Hello @${m.sender.split('@')[0]}\nyou can rent the bot to join a group\n\n_For more info you can DM the owner_\n*Type* \`\`\`.owner\`\`\` *to contact the owner*`.trim(),
+        text: `Hola @${m.sender.split('@')[0]}\npuedes rentar el bot para que entre a un grupo\n\n_Para más información manda mensaje al dueño_\n*Escribe* \`\`\`!owner\`\`\` *para contactar al dueño*`.trim(),
       },
       { quoted: m }
     )

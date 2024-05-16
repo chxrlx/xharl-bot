@@ -15,15 +15,15 @@ let elementHandler = async (m, { conn, text }) => {
 
     console.log('JSON response:', json)
 
-    let elementInfo = `*Element Information:*\n
-     • *Name:* ${json.name}\n
-     • *Symbol:* ${json.symbol}\n
-     • *Atomic Number:* ${json.atomic_number}\n
-     • *Atomic Mass:* ${json.atomic_mass}\n
-     • *Period:* ${json.period}\n
-     • *Phase:* ${json.phase}\n
-     • *Discovered By:* ${json.discovered_by}\n
-     • *Summary:* ${json.summary}`
+    let elementInfo = `*Información del elemento:*\n
+     • *Nombre:* ${json.name}\n
+     • *Símbolo:* ${json.symbol}\n
+     • *Número atómico:* ${json.atomic_number}\n
+     • *Masa atómica:* ${json.atomic_mass}\n
+     • *Periodo:* ${json.period}\n
+     • *Fase:* ${json.phase}\n
+     • *Descubierto por:* ${json.discovered_by}\n
+     • *Resumen:* ${json.summary}`
 
     conn.sendFile(m.chat, json.image, 'element.jpg', elementInfo, m)
   } catch (error) {

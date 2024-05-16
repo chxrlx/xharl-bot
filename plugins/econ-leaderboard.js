@@ -15,7 +15,7 @@ let handler = async (m, { conn, args, usedPrefix, participants }) => {
         ? conn.user.jid
         : m.sender
   let user = global.db.data.users[who]
-  if (!(who in global.db.data.users)) throw '✳️ The user is not found in my database'
+  if (!(who in global.db.data.users)) throw '✳️ El usuario no está registrado en la base de datos.'
   let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './Guru.jpg')
   let about = (await conn.fetchStatus(who).catch(console.error))?.status || ''
   let { name, exp, credit, lastclaim, registered, regTime, age, level, role, warn } =
@@ -50,7 +50,7 @@ let handler = async (m, { conn, args, usedPrefix, participants }) => {
       ? Math.min(50, Math.max(parseInt(args[0]), 5))
       : Math.min(10, sortedExp.length)
   let text = `
-👑 *GLOBAL LEADERBOARD* 👑
+👑 *TABLA DE LÍDERES GLOBAL* 👑
 
 ${sortedExp
   .slice(0, len)
@@ -59,13 +59,13 @@ ${sortedExp
     let user = global.db.data.users[jid]
     let username = user.name
     return `*#${i + 1}.*
-*👑 Username:* ${username}
-*🌟 Experience:* ${exp}
-*🏆 Rank:* ${role}
-*✨ Level:* ${level}
-*👛 Wallet:* ${credit}
-*🏦 Bank:* ${bank}
-*💰 Gold:* ${totalgold}`
+*👑 Nombre de usuario:* ${username}
+*🌟 Experiencia:* ${exp}
+*🏆 Rango:* ${role}
+*✨ Nivel:* ${level}
+*👛 Cartera:* ${credit}
+*🏦 Banco:* ${bank}
+*💰 Oro:* ${totalgold}`
   })
   .join('\n\n\n')}
 *You are at ${usersExp.indexOf(m.sender) + 1} out of total ${usersExp.length} members*`.trim()

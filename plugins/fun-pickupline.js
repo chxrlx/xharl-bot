@@ -5,7 +5,7 @@ let pickupLineHandler = async (m, { conn, text }) => {
     let res = await fetch(`https://api.popcat.xyz/pickuplines`)
 
     if (!res.ok) {
-      throw new Error(`API request failed with status ${res.status}`)
+      throw new Error(`Petición de la API fallo con el estado ${res.status}`)
     }
 
     let json = await res.json()

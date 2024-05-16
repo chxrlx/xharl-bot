@@ -7,12 +7,12 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     let { SD, HD, desc, thumb, audio } = await fg.twitter(args[0])
     let te = ` 
 ┌─⊷ *TWITTER DL*
-▢ Description: ${desc}
+▢ Descripción: ${desc}
 └───────────`
     conn.sendFile(m.chat, HD, 'twitter.mp4', te, m)
     m.react(done)
   } catch (e) {
-    m.reply(`✳️ verify that the link is from Twitter`)
+    m.reply(`✳️ verifica que el link sea de Twitter`)
   }
 }
 handler.help = ['twitter'].map(v => v + ' <url>')

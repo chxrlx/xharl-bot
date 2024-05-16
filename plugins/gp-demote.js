@@ -6,9 +6,9 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
     var number = text
   }
   if (!text && !m.quoted)
-    return conn.reply(m.chat, `✳️ Using the command \n *${usedPrefix + command}* @tag`, m)
+    return conn.reply(m.chat, `✳️ Uso del comando \n *${usedPrefix + command}* @tag`, m)
   if (number.length > 13 || (number.length < 11 && number.length > 0))
-    return conn.reply(m.chat, `✳️ Number incorrect`, m)
+    return conn.reply(m.chat, `✳️ Número incorrecto`, m)
 
   try {
     if (text) {
@@ -21,7 +21,7 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
   } catch (e) {
   } finally {
     conn.groupParticipantsUpdate(m.chat, [user], 'demote')
-    m.reply(`✅ User demoted`)
+    m.reply(`✅ usuario degradado con éxito`)
   }
 }
 handler.help = ['demote (@tag)']

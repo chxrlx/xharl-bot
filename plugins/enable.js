@@ -209,9 +209,9 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
     default:
       if (!/[01]/.test(command))
         return m.reply(`
-≡ List of options
+≡ Lista de opciones
 
-◈──『 *ADMIN*』───⳹
+◈──『 *ADMINISTRADOR*』───⳹
 ⛊ welcome
 ⛊ antilink
 ⛊ nsfw
@@ -221,11 +221,11 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
 ⛊ antispam
 ⛊ antitoxic
 ╰──────────⳹ 
-◈──『 *USERS*』───⳹
+◈──『 *USUARIOS*』───⳹
 ⛊ autolevelup
 ⛊ chatbot 
 ╰──────────⳹
-◈──『 *OWNER*』───⳹
+◈──『 *DUEÑO*』───⳹
 ⛊ onlydm
 ⛊ grouponly
 ⛊ autotype
@@ -240,7 +240,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
 
   m.reply(
     `
-✅ *${type}* Now *${isEnable ? 'Active' : 'Deactive'}* ${isAll ? 'for this bot' : isUser ? '' : 'for this bot'}
+✅ *${type}* Ahora *${isEnable ? 'Active' : 'Deactive'}* ${isAll ? 'for this bot' : isUser ? '' : 'for this bot'}
 `.trim()
   )
 }

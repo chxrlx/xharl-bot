@@ -16,31 +16,31 @@ let imdbHandler = async (m, { conn, text }) => {
 
     let ratings = json.ratings.map(rating => `• *${rating.source}:* ${rating.value}`).join('\n')
 
-    let movieInfo = `*Movie Information:*\n
-     • *Title:* ${json.title}\n
-     • *Year:* ${json.year}\n
-     • *Seasons:* ${json.totalseasons}\n
-     • *Rated:* ${json.rated}\n
-     • *Released:* ${json.released}\n
+    let movieInfo = `*Información de la Película:*\n
+     • *Título:* ${json.title}\n
+     • *Año:* ${json.year}\n
+     • *Temporadas:* ${json.totalseasons}\n
+     • *Calificación:* ${json.rated}\n
+     • *Lanzamiento:* ${json.released}\n
      • *Runtime:* ${json.runtime}\n
-     • *Genres:* ${json.genres}\n
+     • *Generos:* ${json.genres}\n
      • *Director:* ${json.director}\n
-     • *Writer:* ${json.writer}\n
-     • *Actors:* ${json.actors}\n
+     • *Escritor:* ${json.writer}\n
+     • *Actores:* ${json.actors}\n
      • *Plot:* ${json.plot}\n
-     • *Languages:* ${json.languages}\n
-     • *Country:* ${json.country}\n
-     • *Awards:* ${json.awards}\n
+     • *Languajes:* ${json.languages}\n
+     • *País:* ${json.country}\n
+     • *Premios:* ${json.awards}\n
      • *Metascore:* ${json.metascore}\n
      • *Rating:* ${json.rating}\n
-     • *Votes:* ${json.votes}\n
+     • *Votos:* ${json.votes}\n
      • *IMDB ID:* ${json.imdbid}\n
-     • *Type:* ${json.type}\n
+     • *Tipo:* ${json.type}\n
      • *DVD:* ${json.dvd}\n
      • *Box Office:* ${json.boxoffice}\n
-     • *Production:* ${json.production}\n
+     • *Producción:* ${json.production}\n
      • *Website:* ${json.website}\n\n
-     *Ratings:*\n${ratings}`
+     *Calificaciones:*\n${ratings}`
 
     // send the movie poster along with the movie information as caption
     await conn.sendFile(m.chat, json.poster, 'poster.jpg', movieInfo, m)

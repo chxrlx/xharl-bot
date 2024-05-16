@@ -8,20 +8,20 @@ let handler = async (m, { conn, usedPrefix, command }) => {
         conn.enhancer = conn.enhancer ? conn.enhancer : {}
         let q = m.quoted ? m.quoted : m
         let mime = (q.msg || q).mimetype || q.mediaType || ''
-        if (!mime) throw `photo?`
-        if (!/image\/(jpe?g|png)/.test(mime)) throw `Mime ${mime} tidak support`
+        if (!mime) throw `¿Y la foto?`
+        if (!/image\/(jpe?g|png)/.test(mime)) throw `We ${mime} apoyáme por favor :)`
         else conn.enhancer[m.sender] = true
         m.reply(wait)
         let img = await q.download?.()
         let error
         try {
           const This = await processing(img, 'dehaze')
-          conn.sendFile(m.chat, This, '', 'Nih...', m)
+          conn.sendFile(m.chat, This, '', 'Aquí está', m)
         } catch (er) {
           error = true
         } finally {
           if (error) {
-            m.reply('Proses Gagal :(')
+            m.reply('El proceso falló :(')
           }
           delete conn.enhancer[m.sender]
         }
@@ -33,19 +33,19 @@ let handler = async (m, { conn, usedPrefix, command }) => {
         let q = m.quoted ? m.quoted : m
         let mime = (q.msg || q).mimetype || q.mediaType || ''
         if (!mime) throw `photo?`
-        if (!/image\/(jpe?g|png)/.test(mime)) throw `Mime ${mime} tidak support`
+        if (!/image\/(jpe?g|png)/.test(mime)) throw `We ${mime} formato no soportado :)`
         else conn.recolor[m.sender] = true
         m.reply(wait)
         let img = await q.download?.()
         let error
         try {
           const This = await processing(img, 'recolor')
-          conn.sendFile(m.chat, This, '', 'Nih...', m)
+          conn.sendFile(m.chat, This, '', 'Aquí está', m)
         } catch (er) {
           error = true
         } finally {
           if (error) {
-            m.reply('Proses Gagal :(')
+            m.reply('Proceso falló :(')
           }
           delete conn.recolor[m.chat]
         }
@@ -57,19 +57,19 @@ let handler = async (m, { conn, usedPrefix, command }) => {
         let q = m.quoted ? m.quoted : m
         let mime = (q.msg || q).mimetype || q.mediaType || ''
         if (!mime) throw `photo?`
-        if (!/image\/(jpe?g|png)/.test(mime)) throw `Mime ${mime} tidak support`
+        if (!/image\/(jpe?g|png)/.test(mime)) throw `We ${mime} formato no soportado :)`
         else conn.hdr[m.sender] = true
         m.reply(wait)
         let img = await q.download?.()
         let error
         try {
           const This = await processing(img, 'enhance')
-          conn.sendFile(m.chat, This, '', 'Nih...', m)
+          conn.sendFile(m.chat, This, '', 'Aquí está', m)
         } catch (er) {
           error = true
         } finally {
           if (error) {
-            m.reply('Proses Gagal :(')
+            m.reply('Proceso falló :(')
           }
           delete conn.hdr[m.sender]
         }

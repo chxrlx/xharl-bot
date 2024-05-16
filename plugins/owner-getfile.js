@@ -7,9 +7,9 @@ const _fs = fs.promises
 let handler = async (m, { text, usedPrefix, command, __dirname }) => {
   if (!text)
     throw `
-✳️ user  : ${usedPrefix + command} <name file>
+✳️ usuario  : ${usedPrefix + command} <nombre del archivo>
 
-📌 Example:
+📌 Ejemplo:
         ${usedPrefix}getfile main.js
         ${usedPrefix}getplugin owner
 `.trim()
@@ -26,7 +26,7 @@ let handler = async (m, { text, usedPrefix, command, __dirname }) => {
     if (error) {
       await m.reply(
         `
-❎ bug found in  *${filename}*:
+❎ se encontró un bug en *${filename}*:
 
 ${error}
 
@@ -46,7 +46,7 @@ ${error}
       if (error) {
         await m.reply(
           `
-❎ bug found in *${text}*:
+❎ se encontró un bug en *${text}*:
 
 ${error}
 

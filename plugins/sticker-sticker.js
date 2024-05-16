@@ -22,9 +22,9 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
       })
     } else if (args[0] && isUrl(args[0])) {
       stiker = await createSticker(false, args[0], '', author, 20)
-    } else throw `*RESPOND TO A IMAGE OR VIDEO OR GIF ${usedPrefix + command}*`
+    } else throw `*RESPONDE A UNA IMAGEN, VIDEO O GIF ${usedPrefix + command}*`
   } catch {
-    stiker = '*huh*'
+    stiker = '*??????*'
   } finally {
     m.reply(stiker)
   }

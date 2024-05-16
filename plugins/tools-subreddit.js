@@ -15,14 +15,14 @@ let subredditHandler = async (m, { conn, text }) => {
     console.log('JSON response:', json)
 
     let subredditInfo = `*Subreddit Information:*\n
-     • *Name:* ${json.name}\n
-     • *Title:* ${json.title}\n
-     • *Active Users:* ${json.active_users}\n
-     • *Members:* ${json.members}\n
-     • *Description:* ${json.description}\n
-     • *Allow Videos:* ${json.allow_videos ? 'Yes' : 'No'}\n
-     • *Allow Images:* ${json.allow_images ? 'Yes' : 'No'}\n
-     • *Over 18:* ${json.over_18 ? 'Yes' : 'No'}\n
+     • *Nombre:* ${json.name}\n
+     • *Título:* ${json.title}\n
+     • *Usuarios Activos:* ${json.active_users}\n
+     • *Miembros:* ${json.members}\n
+     • *Descripción:* ${json.description}\n
+     • *Se permiten videos:* ${json.allow_videos ? 'Yes' : 'No'}\n
+     • *Se permiten imágenes:* ${json.allow_images ? 'Yes' : 'No'}\n
+     • *Más 18:* ${json.over_18 ? 'Yes' : 'No'}\n
      • *URL:* ${json.url}`
 
     // if icon is not null or undefined, send it along with the subreddit information as caption

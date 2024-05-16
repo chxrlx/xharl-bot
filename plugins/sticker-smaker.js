@@ -17,8 +17,8 @@ ${usedPrefix + command} wasted
 `.trim()
   let q = m.quoted ? m.quoted : m
   let mime = (q.msg || q).mimetype || ''
-  if (!mime) throw '✳️ Respond to an image'
-  if (!/image\/(jpe?g|png)/.test(mime)) throw `✳️ Format not supported`
+  if (!mime) throw '✳️ Respondde a una imagen'
+  if (!/image\/(jpe?g|png)/.test(mime)) throw `✳️ Formato no soportado`
   let img = await q.download()
   let url = await uploadImage(img)
   let apiUrl = global.API('https://some-random-api.com/canvas/', encodeURIComponent(effect), {
@@ -28,7 +28,7 @@ ${usedPrefix + command} wasted
     let stiker = await sticker(null, apiUrl, global.packname, global.author)
     conn.sendFile(m.chat, stiker, null, { asSticker: true }, m)
   } catch (e) {
-    m.reply('Conversion to sticker error, send as image instead')
+    m.reply('Error al convertir a sticker')
     await conn.sendFile(m.chat, apiUrl, 'smaker.png', null, m)
   }
 }

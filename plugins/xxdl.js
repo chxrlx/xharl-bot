@@ -3,11 +3,11 @@ import { xnxxSearch, xnxxdl } from '../lib/scraper.js'
 let handler = async (m, { conn, args, text, usedPrefix, command }) => {
   let chat = global.db.data.chats[m.chat]
   if (!chat.nsfw)
-    throw `🚫 This group does not support NSFW content.\n\nTo turn it on, use: *${usedPrefix}enable* nsfw`
+    throw `🚫 Este grupo no soporta contenido NSFW.\n\nPara habilitarlo, usa: *${usedPrefix}enable* nsfw`
   let user = global.db.data.users[m.sender].age
-  if (user < 18) throw `❎ You must be 18 years or older to use this feature.`
+  if (user < 18) throw `❎ Debes tener 18 años o más para usar este comando.`
   if (!text)
-    throw `✳️ What do you want to search?\n📌 Usage: *${usedPrefix + command} <search>*\n\nExample: Hot desi bhabi or you can use a link as well\nExample: .xnxx link *`
+    throw `✳️ Qué quieres buscar?\n📌 Uso: *${usedPrefix + command} <search>*\n\nEjemplo: culona o tambien puedes ingresar un link\nExample: .xnxx link *`
 
   m.react('⌛')
 
@@ -22,14 +22,14 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
     try {
       const files = await xnxxdl(url.href)
       if (files && files.high) {
-        conn.sendFile(m.chat, files.high, 'video.mp4', 'Here is your video', m)
+        conn.sendFile(m.chat, files.high, 'video.mp4', 'Aquí está el vídeo', m)
         m.react('✅')
       } else {
-        m.reply('🔴 Error: Failed to retrieve the download URL.')
+        m.reply('🔴 Error: Falló al obtener la URL')
       }
     } catch (e) {
       console.error(e)
-      m.reply('🔴 Error: We encountered a problem while processing the request.')
+      m.reply('🔴 Error: Encontramos un problema al procesar tu petición.')
     }
   } else {
     try {
@@ -42,11 +42,11 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
           },
         })
       } else {
-        m.reply('🔴 Error: No search results found.')
+        m.reply('🔴 Error: No se encontraron resultados')
       }
     } catch (e) {
       console.error(e)
-      m.reply('🔴 Error: We encountered a problem while processing the request.')
+      m.reply('🔴 Error: Encontramos un problema al procesar tu solicitud.')
     }
   }
 }

@@ -6,16 +6,16 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
   let user = global.db.data.users[m.sender]
   let name2 = conn.getName(m.sender)
   if (user.registered === true)
-    throw `✳️ You are already registered\n\nDo you want to re-register?\n\n 📌 Use this command to remove your record \n*${usedPrefix}unreg* <Serial number>`
+    throw `✳️ Ya estás registrado\n\n¿Quieres re-registrarte?\n\n 📌 Usa este comando para eliminar tu registro \n*${usedPrefix}unreg* <número de serie>`
   if (!Reg.test(text))
-    throw `⚠️ Format incorrect\n\n ✳️ Use this command: *${usedPrefix + command} name.age*\n📌Exemple : *${usedPrefix + command}* ${name2}.16`
+    throw `⚠️ Formato incorrecto\n\n ✳️ Uso del comando: *${usedPrefix + command} nombre.edad*\n📌Ejemplo: *${usedPrefix + command}* ${name2}.16`
   let [_, name, splitter, age] = text.match(Reg)
-  if (!name) throw '✳️ The name cannot be empty'
-  if (!age) throw '✳️ age cannot be empty'
-  if (name.length >= 30) throw '✳️The name is too long'
+  if (!name) throw '✳️ El nombre no puede estar vacío'
+  if (!age) throw '✳️ la edad no puede estar vacía'
+  if (name.length >= 30) throw '✳️ El nombre es demasiado largo'
   age = parseInt(age)
-  if (age > 100) throw '👴🏻 Wow grandpa wants to play bot'
-  if (age < 5) throw '🚼  there is a grandpa baby jsjsj '
+  if (age > 100) throw '👴🏻 a la verga un anciano'
+  if (age < 5) throw '🚼  Y este puto bebé qué?'
   user.name = name.trim()
   user.age = age
   user.regTime = +new Date()
@@ -23,14 +23,14 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
   let sn = createHash('md5').update(m.sender).digest('hex')
   m.reply(
     `
-┌─「 *REGISTERED* 」─
-▢ *NUMBER:* ${name}
-▢ *AGE* : ${age} years
-▢ *SERIEL NUMBER* :
+┌─「 *REGISTRADO* 」─
+▢ *NÚMERO:* ${name}
+▢ *EDAD* : ${age} años
+▢ *NÚMERO DE SERIE* :
 ${sn}
 └──────────────
 
- *${usedPrefix}help* to see menu
+ *${usedPrefix}help* para ver el menú
 `.trim()
   )
 }

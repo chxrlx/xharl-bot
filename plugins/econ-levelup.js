@@ -11,14 +11,14 @@ let handler = async (m, { conn }) => {
   if (!canLevelUp(user.level, user.exp, global.multiplier)) {
     let { min, xp, max } = xpRange(user.level, global.multiplier)
     let txt = `
-┌───⊷ *LEVEL*
-▢ Number : *${name}*
-▢ Level : *${user.level}*
-▢ XP : *${user.exp - min}/${xp}*
-▢ Role : *${user.role}*
+┌───⊷ *NIVEL*
+▢ Número: *${name}*
+▢ Nivel: *${user.level}*
+▢ XP: *${user.exp - min}/${xp}*
+▢ Rol: *${user.role}*
 └──────────────
 
-Hey there, ${name}! You're not ready to level up just yet. It seems like you need to munch up *${max - user.exp}* more XP to level up and reach new heights! Keep going, and the bots will be singing your praises soon! 🚀
+¡Hola, ${name}! Aún no estás listo para subir de nivel. ¡Parece que necesitas farmear *${max - user.exp}* más XP para subir de nivel y alcanzar nuevas alturas! Sigue así, ¡y los bots no tardarán en cantar tus alabanzas! 🚀
 `.trim()
 
     try {
@@ -29,14 +29,14 @@ Hey there, ${name}! You're not ready to level up just yet. It seems like you nee
     }
   } else {
     let str = `
-┌─⊷ *LEVEL UP*
-▢ Previous level : *${user.level - 1}*
-▢ Current level : *${user.level}*
-▢ Role : *${user.role}*
+┌─⊷ *SUBIR DE NIVEL*
+▢ Nivel anterior: *${user.level - 1}*
+▢ Nivel actual: *${user.level}*
+▢ Rol: *${user.role}*
 └──────────────
 
-Woo-hoo, ${name}! You've soared to new heights and reached level ${user.level}! 🎉 Time to celebrate! 🎊
-Your newfound power will strike fear into the hearts of trolls, and the bots will bow before your command! Keep up the incredible work, and who knows what epic adventures await you next! 🌟
+¡Woo-hoo, ${name}! ¡Has alcanzado nuevas alturas y has llegado al nivel ${user.level}! 🎉 ¡Es hora de celebrarlo! 🎊
+Tu nuevo poder infundirá miedo en los corazones de los trolls, ¡y los bots se inclinarán ante tus órdenes! Sigue con el increíble trabajo, ¡y quién sabe qué aventuras épicas te esperan a continuación! 🌟
 `.trim()
 
     try {

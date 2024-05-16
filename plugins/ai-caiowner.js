@@ -65,7 +65,7 @@ function _0x58ac() {
       a(0xf5),
       a(0x10b),
       a(0xd7),
-      'Invalid\x20\x27.cai\x27\x20command.\x0a*Usage*:\x0a.cai\x20search\x20```<query>```,\x0a.cai\x20new\x20```<charnickname>```,\x0a.cai\x20trending,\x0a.cai\x20add\x20```<nickname>:<charid>```.',
+      'Invalid\x20\x27.cai\x27\x20command.\x0a*Uso*:\x0a.cai\x20search\x20```<query>```,\x0a.cai\x20new\x20```<charnickname>```,\x0a.cai\x20trending,\x0a.cai\x20add\x20```<nickname>:<charid>```.',
       a(0xe0),
       a(0xfa),
       a(0xf7),

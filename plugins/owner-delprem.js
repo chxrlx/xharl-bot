@@ -12,15 +12,15 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
           : false
   else who = text ? text.replace(/[^0-9]/g, '') + '@s.whatsapp.net' : m.chat
   let user = global.db.data.users[who]
-  if (!who) return m.reply(`✳️ Mention the user\n\n📌 *Example* :\n${usedPrefix + command} @tag`)
-  if (!global.prems.includes(who.split`@`[0])) throw '✳️ The user is not Premium'
+  if (!who) return m.reply(`✳️ Menciona al usuario\n\n📌 *Ejemplo* :\n${usedPrefix + command} @tag`)
+  if (!global.prems.includes(who.split`@`[0])) throw '✳️ El usuario no es premium'
   let index = global.prems.findIndex(
     v =>
       v.replace(/[^0-9]/g, '') + '@s.whatsapp.net' ===
       who.replace(/[^0-9]/g, '') + '@s.whatsapp.net'
   )
   global.prems.splice(index, 1)
-  conn.reply(m.chat, `✅ Premium removed \n\n@${who.split('@')[0]} you are no longer premium`, m, {
+  conn.reply(m.chat, `✅ Premium removido \n\n@${who.split('@')[0]} ya no eres premium`, m, {
     mentions: [who],
   })
 }

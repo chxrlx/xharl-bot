@@ -9,12 +9,12 @@ let handler = async (m, { conn, usedPrefix }) => {
   let user = global.db.data.users[who]
 
   let username = conn.getName(who)
-  if (!(who in global.db.data.users)) throw `🟨 The user is not found in my database`
+  if (!(who in global.db.data.users)) throw `🟨 El usuario no se encuentra en mi base de datos`
   conn.reply(
     m.chat,
-    `👛 *Wallet | ${username}*
+    `👛 *Cartera | ${username}*
 
-🪙 *Gold* : ${user.credit}
+🪙 *Oro* : ${user.credit}
 `,
     m,
     { mentions: [who] }

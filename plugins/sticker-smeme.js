@@ -15,7 +15,7 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
   let mime = (quotedMessage.msg || quotedMessage).mimetype || quotedMessage.mediaType || ''
 
   if (/video/g.test(mime)) {
-    if ((quotedMessage.msg || quotedMessage).seconds > 11) return m.reply('Maximum 10 seconds!')
+    if ((quotedMessage.msg || quotedMessage).seconds > 11) return m.reply('10 segundos máximo')
   }
 
   if (!/webp|image|video|gif|viewOnce/g.test(mime))

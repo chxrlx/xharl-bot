@@ -7,12 +7,12 @@ let handler = async m => {
   let mime = (q.msg || q).mimetype || ''
 
   if (!mime) {
-    throw '✳️ Respond to an image/video'
+    throw '✳️ Responde a una imagen o video.'
   }
   let mediaBuffer = await q.download()
 
   if (mediaBuffer.length > 10 * 1024 * 1024) {
-    throw '✴️ Media size exceeds 10 MB. Please upload a smaller file.'
+    throw '✴️ El tamaño del archivo excede el límite de 10 MB.'
   }
 
   let currentModuleDirectory = path.dirname(new URL(import.meta.url).pathname)
@@ -32,7 +32,7 @@ let handler = async m => {
 
     const fileSizeMB = (mediaBuffer.length / (1024 * 1024)).toFixed(2)
 
-    m.reply(`✅ *Media Upload Successful*\n♕ *File Size:* ${fileSizeMB} MB\n♕ *URL:* ${link}`)
+    m.reply(`✅ *Se subió el archivo correctamente*\n♕ *Tamaño del archivo:* ${fileSizeMB} MB\n♕ *URL:* ${link}`)
   } else {
     m.reply(`♕ ${mediaBuffer.length} Byte(s) 
     ♕ (Unknown)`)

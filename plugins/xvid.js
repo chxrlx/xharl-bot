@@ -3,14 +3,14 @@ import { xvideosSearch, xvideosdl } from '../lib/scraper.js'
 let handler = async (m, { conn, args, text, usedPrefix, command }) => {
   let chat = global.db.data.chats[m.chat]
   if (!chat.nsfw)
-    throw `🚫 This group does not support NSFW content.\n\nTo turn it on, use: *${usedPrefix}enable* nsfw`
+    throw `🚫 Este grupo no soporta contenido NSFW.\n\nPara habilitarlo, usa: *${usedPrefix}enable* nsfw`
   let user = global.db.data.users[m.sender].age
-  if (user < 18) throw `❎ You must be 18 years or older to use this feature.`
+  if (user < 18) throw `❎ Debes tener 18 años o más para usar este comando.`
   if (!text)
-    throw `✳️ What do you want to search?\n📌 Usage: *${usedPrefix + command} <search>*\n\nExample: Hot desi bhabi or you can use a link as well\nExample: .xnxx link *`
+    throw `✳️ Qué quieres buscar?\n📌 Uso: *${usedPrefix + command} <search>*\n\nEjemplo: culona o puedes ingresar un link\nEjemplo: .xnxx link *`
 
   m.react('⌛')
-  if (!text) throw 'Please provide a search query or a valid Xvideos URL.'
+  if (!text) throw 'Por favor, ingresa un término de búsqueda válido o un enlace de Xvideos.'
 
   // Check if the input is a valid Xvideos URL
   const isURL = /^(https?:\/\/)?(www\.)?xvideos\.com\/.+$/i.test(text)
@@ -35,7 +35,7 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
       // If it's not a valid URL, perform a search and display the search results
       const results = await xvideosSearch(text)
       if (results.length === 0) {
-        m.reply('No search results found for the given query.')
+        m.reply('No se encontraron resultados.')
       } else {
         const searchResults = results
           .map((result, index) => {
@@ -48,7 +48,7 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
     }
   } catch (error) {
     console.error(error)
-    throw 'Failed to fetch Xvideos video details.'
+    throw 'Falló'
   }
 }
 

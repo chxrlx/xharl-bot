@@ -15,16 +15,16 @@ let handler = async (m, { conn, command, args }) => {
     conn.reply(
       m.chat,
       `
-┌─「 *PAYMENT NOTE* 」
-‣ *Nominal purchase* : + ${count} 
-‣ *Spent* : -${xppercredit * count} XP
+┌─「 *FACTURA* 」
+‣ *Nómina de la compra* : + ${count} 
+‣ *Gasto* : -${xppercredit * count} XP
 └──────────────`,
       m
     )
   } else
     conn.reply(
       m.chat,
-      `❎ Sorry, you don't have enough *XP* to buy *${count}* Gold\n\n You can get *XP* using the commands from the *games and economy menu*`,
+      `❎ Sorry, no tienes suficiciente *XP* para comprar *${count}* Oro\n\n Puedes obtener *XP* usando los comandos del *menú games y economy*`,
       m
     )
 }

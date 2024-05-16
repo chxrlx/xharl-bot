@@ -5,7 +5,7 @@ import moment from 'moment-timezone'
 import os from 'os'
 
 let groupmenu = `
-   ✦ ───『 *group* 』─── ⚝
+   ✦ ───『 *grupo* 』─── ⚝
   ◈ .getbio <@tag/reply>  Ⓛ
   ◈ .animequote
   ◈ .Setdesc <text>
@@ -36,7 +36,7 @@ let groupmenu = `
   ╰──────────⳹`
 
 let ownermenu = `
-  ✦ ───『 *owner* 』─── ⚝
+  ✦ ───『 *dueño* 』─── ⚝
   ◈ .addprem <@tag>
   ◈ .addowner @user
   ◈ .allow <@tag>
@@ -68,7 +68,7 @@ let ownermenu = `
   ╰──────────⳹`
 
 let funmenu = `
-  ✦ ───『 *fun* 』─── ⚝
+  ✦ ───『 *diversión* 』─── ⚝
   ◈ .afk <reason>
   ◈ .tomp3
   ◈ .toav
@@ -90,7 +90,7 @@ let funmenu = `
   ╰──────────⳹`
 
 let reactmenu = `
-  ✦ ───『 *reaction* 』─── ⚝
+  ✦ ───『 *reacción* 』─── ⚝
   ◈ .bully @tag
   ◈ .cuddle @tag
   ◈ .cry @tag
@@ -120,7 +120,7 @@ let reactmenu = `
   ╰──────────⳹`
 
 let dlmenu = `
-  ✦ ───『 *downloader* 』─── ⚝
+  ✦ ───『 *descargas* 』─── ⚝
   ◈ .facebook <url>
   ◈ .gdrive 🅟
   ◈ .gitclone <url>
@@ -143,7 +143,7 @@ let dlmenu = `
   ╰──────────⳹`
 
 let gamemenu = `
-  ✦ ───『 *game* 』─── ⚝
+  ✦ ───『 *juego* 』─── ⚝
   ◈ .slot <amount>
   ◈ .chess [from to]
   ◈ .chess delete
@@ -156,7 +156,7 @@ let gamemenu = `
   ◈ .tictactoe <tag number>
   ╰──────────⳹`
 let logomenu = `
-  ✦ ───『 *maker* 』─── ⚝
+  ✦ ───『 *creador* 』─── ⚝
   ◈ .blur
   ◈ .difuminar2
   ◈ .hornycard
@@ -222,14 +222,14 @@ let audiomenu = `
   ╰──────────⳹`
 
 let newsmenu = `
-  ✦ ───『 *news* 』─── ⚝
+  ✦ ───『 *noticias* 』─── ⚝
   ◈ .news
   ◈ .technews
   ◈ .ndtv
   ╰──────────⳹
   `
 let economy = `
-  ✦ ───『 *economy* 』─── ⚝
+  ✦ ───『 *economia* 』─── ⚝
   ◈ .addgold <@user>
   ◈ .addxp <@user>
   ◈ .bank
@@ -380,7 +380,7 @@ let nsfwmenu = `
   ╰──────────⳹`
 
 let toolsmenu = `
-  ✦ ───『 *tools* 』─── ⚝
+  ✦ ───『 *herramientas* 』─── ⚝
   ◈ .nowa
   ◈ .qr <text>
   ◈ .qrcode <text>

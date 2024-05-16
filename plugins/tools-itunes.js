@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 
 let itunesHandler = async (m, { conn, text }) => {
-  if (!text) throw 'Please provide a song name'
+  if (!text) throw 'Por favor ingresa un número de canción'
 
   try {
     let res = await fetch(`https://api.popcat.xyz/itunes?q=${encodeURIComponent(text)}`)
@@ -14,14 +14,14 @@ let itunesHandler = async (m, { conn, text }) => {
 
     console.log('JSON response:', json)
 
-    let songInfo = `*Song Information:*\n
-     • *Name:* ${json.name}\n
-     • *Artist:* ${json.artist}\n
+    let songInfo = `*Información de la canción:*\n
+     • *Nombre:* ${json.name}\n
+     • *Artista:* ${json.artist}\n
      • *Album:* ${json.album}\n
-     • *Release Date:* ${json.release_date}\n
-     • *Price:* ${json.price}\n
-     • *Length:* ${json.length}\n
-     • *Genre:* ${json.genre}\n
+     • *Fecha de lanzamiento:* ${json.release_date}\n
+     • *Precio:* ${json.price}\n
+     • *Duración:* ${json.length}\n
+     • *Genero:* ${json.genre}\n
      • *URL:* ${json.url}`
 
     // Check if thumbnail is present, then send it with songInfo as caption

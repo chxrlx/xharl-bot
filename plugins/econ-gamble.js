@@ -15,30 +15,30 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
           ? conn.user.jid
           : m.sender
     let username = conn.getName(who)
-    if (!(who in global.db.data.users)) throw `✳️ The user is not found in my database`
+    if (!(who in global.db.data.users)) throw `✳️ El usuario no se encuentra en mi base de datos`
 
     if (rouletteBets[chatId] && rouletteBets[chatId].length > 0) {
       let colores = ['red', 'black']
       let colour = colores[Math.floor(Math.random() * colores.length)]
 
       let winners = []
-      let resultMessage = `The ball landed on ${colour}\n\n🎉 Winners 🎉\n\n`
+      let resultMessage = `La bola cayó en ${colour}\n\n🎉 Ganadores 🎉\n\n`
 
       for (let bet of rouletteBets[chatId]) {
         let result = ''
         if (colour === bet.color) {
-          result = `@${bet.user.split('@')[0]} won ${bet.amount}`
+          result = `@${bet.user.split('@')[0]} ganó ${bet.amount}`
           global.db.data.users[bet.user].credit += bet.amount
           winners.push(result)
         } else {
-          result = `@${bet.user.split('@')[0]} lost ${bet.amount}`
+          result = `@${bet.user.split('@')[0]} perdió ${bet.amount}`
           global.db.data.users[bet.user].credit -= bet.amount
         }
       }
 
       resultMessage += winners.join('\n')
       if (winners.length === 0) {
-        resultMessage += 'No winners'
+        resultMessage += 'No hay ganadores'
       }
 
       rouletteResult[chatId] = resultMessage
@@ -61,30 +61,30 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
   const betRoulette = (user, chatId, amount, color) => {
     let colores = ['red', 'black']
     if (isNaN(amount) || amount < 500) {
-      throw `✳️ The minimum bet is 500 gold`
+      throw `✳️ El mínimo de apuesta es 500`
     }
     if (!colores.includes(color)) {
-      throw '✳️ You must specify a valid color: red or black'
+      throw '✳️ Debes apostar a un color válido (red/black)'
     }
     if (users.credit < amount) {
-      throw '✳️ You do not have enough gold!'
+      throw '✳️ ¡No tienes suficiente oro para apostar!'
     }
     if (amount > 100000) {
-      throw `🟥 You can't bet gold more than 100000`
+      throw `🟥 No puedes apostar más de 100000 de oro`
     }
 
     if (!rouletteBets[chatId]) {
       rouletteBets[chatId] = []
     }
     rouletteBets[chatId].push({ user, amount, color })
-    return `✅ Your bet of ${amount} gold on ${color} has been placed!`
+    return `✅ ¡Tu apuesta de ${amount} de oro en ${color} ha sido colocada!`
   }
 
   //const handler = async (m, { conn, args, usedPrefix, command }) => {
   let amount = parseInt(args[0])
   let color = args[1]?.toLowerCase()
   if (args.length < 2) {
-    throw `✳️ Command Usage: ${usedPrefix + command} <amount> <color>\n\n Example: ${usedPrefix + command} 500 red`
+    throw `✳️ Uso del comando: ${usedPrefix + command} <cantidad> <color>\n\n Ejemplo: ${usedPrefix + command} 500 red`
   }
 
   let users = global.db.data.users[m.sender]

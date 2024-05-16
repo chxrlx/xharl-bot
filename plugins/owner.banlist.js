@@ -4,7 +4,7 @@ let handler = async (m, { conn, usedPrefix }) => {
 
   m.reply(
     `
-≡ *USERS BANNED*
+≡ *USUARIOS BANEADOS*
 
 ▢ Total : *${users.length}* 
 

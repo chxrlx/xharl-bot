@@ -5,10 +5,10 @@ let handler = async (m, { conn, args, text }) => {
 
   let shortUrl1 = await (await fetch(`https://tinyurl.com/api-create.php?url=${args[0]}`)).text()
 
-  if (!shortUrl1) throw `*Error: Could not generate a short URL.*`
+  if (!shortUrl1) throw `*Error: No se puede acortar la URL*`
 
   let done =
-    `*SHORT URL CREATED!!*\n\n*Original Link:*\n${text}\n*Shortened URL:*\n${shortUrl1}`.trim()
+    `*URL acortada creada*\n\n*Link original:*\n${text}\n*URL acortada:*\n${shortUrl1}`.trim()
 
   m.reply(done)
 }

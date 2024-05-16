@@ -4,9 +4,9 @@ let handler = async (m, { conn }) => {
   conn.reply(
     m.chat,
     `
-*LIST  COMANDOS*
+*LISTA DE COMANDOS*
 
-▢ *Info:* If it is in *bold* it is blocked
+▢ *Info:* Si está en *negrita* está bloqueado
 
 ──────────────────
 ${Object.entries(global.db.data.sticker)

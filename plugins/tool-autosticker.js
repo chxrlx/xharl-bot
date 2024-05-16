@@ -23,7 +23,7 @@ handler.all = async function (m) {
       //if (/video/g.test(mime)) if ((q.msg || q).seconds > 8) return await this.sendButton(m.chat, '*Send video of 7 seconds*', wm, [['DEACTIVE AUTOSTICKER', '/disable autosticker']], m)
       if (/video/g.test(mime))
         if ((q.msg || q).seconds > 8)
-          return await this.sendReply(m.chat, { text: '*Send video of 7 seconds*' }, m.sender)
+          return await this.sendReply(m.chat, { text: '*Envía un video de 7 segundos*' }, m.sender)
       let img = await q.download()
       if (!img) return
       stiker = await mp4ToWebp(img, {

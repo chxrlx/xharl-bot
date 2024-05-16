@@ -3,11 +3,11 @@ let handler = async (m, { conn, usedPrefix, command }) => {
   let mime = (q.msg || q).mimetype || q.mediaType || ''
   if (/image/.test(mime)) {
     let img = await q.download()
-    if (!img) throw '*REPLY TO AN IMAGE.*'
+    if (!img) throw '*RESPONDE A UNA IMAGEN*'
     await conn
       .updateProfilePicture(m.chat, img)
-      .then(_ => m.reply('IMAGE SUCCESSFULLY SET AS PP._*'))
-  } else throw '*REPLY TO AN IMAGE.*'
+      .then(_ => m.reply('*✅ Cambiaste la foto de perfil con éxito!*'))
+  } else throw '*RESPONDE A UNA IMAGEN*'
 }
 handler.command = /^setpp(group|grup|gc)?$/i
 handler.group = true

@@ -50,36 +50,36 @@ let handler = async (m, { conn, usedPrefix, command }) => {
       : m.fromMe
         ? conn.user.jid
         : m.sender
-  if (!(who in global.db.data.users)) throw `✳️ The user is not found in my database`
+  if (!(who in global.db.data.users)) throw `✳️ El usuario no está registrado en la base de datos.`
   let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './Guru.jpg')
   let user = global.db.data.users[who]
 
   let infobt = `
 ≡ *INFO BOT*
   
-*STATE*
-▢ *${groupsIn.length}* GROUP CHATS
-▢ *${groupsIn.length}* united groups
-▢ *${groupsIn.length - groupsIn.length}* abandoned groups
-▢ *${chats.length - groupsIn.length}* private chats
-▢ *${chats.length}* Total Chats
+*ESTADO*
+▢ *${groupsIn.length}* CHATS DE GRUPO
+▢ *${groupsIn.length}* Grupos activos
+▢ *${groupsIn.length - groupsIn.length}* grupos abandonados
+▢ *${chats.length - groupsIn.length}* chats privados
+▢ *${chats.length}* Chats totales
 
-*≡ OWNER*
-  *GURU*
+*≡ DUEÑO*
+  *XHARL*
 ▢ Instagram :
-  • https://instagram.com/asli_guru69
+  • No disponible
 ▢ GitHub :
-  • https://github.com/Guru322
+  • https://github.com/chxrlx
 ▢ Telegram : 
-  • t.me/i_want_to_be_isekaied (GURU) 
+  • No disponible 
 ▢ YouTube : 
-  • https://youtube.com/@Asliguru
+  • No disponible
 
- *≡ S E R V E R*
+ *≡ SERVIDOR*
 *🛑 RAM:* ${format(totalmem() - freemem())} / ${format(totalmem())}
-*🔵 FreeRAM:* ${format(freemem())}
+*🔵 RAM libre:* ${format(freemem())}
 
-*≡  NodeJS memory *
+*≡  Memoria NodeJS*
 ${
   '```' +
   Object.keys(used)

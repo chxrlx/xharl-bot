@@ -7,7 +7,7 @@ let handler = async (m, { conn }) => {
     let mime = (q.msg || q).mimetype || q.mediaType || ''
 
     if (!mime.startsWith('image')) {
-      throw '*Respond to an image*'
+      throw '*Responde a una imagen*'
     }
 
     let data = await q.download()

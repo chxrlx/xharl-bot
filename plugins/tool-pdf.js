@@ -2,10 +2,10 @@ import uploadImage from '../lib/uploadImage.js'
 let handler = async (m, { conn, text, usedPrefix, command, isOwner }) => {
   let q = m.quoted ? m.quoted : m
   let mime = (q.msg || q).mimetype || ''
-  if (!mime) throw '*Respond / reply to an image*'
+  if (!mime) throw '*Responde a una imagen*'
   let img = await q.download?.()
   let url = await uploadImage(img)
-  let docname = text ? text : m.pushName || 'Gurubot'
+  let docname = text ? text : m.pushName || 'XharlBot'
   conn.sendFile(
     m.chat,
     `http://api.lolhuman.xyz/api/convert/imgtopdf?apikey=${lolkeysapi}&img=${url}`,

@@ -6,10 +6,10 @@ let handler = async (m, { args, usedPrefix, command }) => {
   let err = `
 📌 *Example:*
 
-*${usedPrefix + command}* <id> [text]
+*${usedPrefix + command}* <id> [texto]
 *${usedPrefix + command}* en Hello World
 
-≡ *List of supported languages:* 
+≡ *Lista de lenguajes soportados:* 
 
 https://cloud.google.com/translate/docs/languages
 `.trim()

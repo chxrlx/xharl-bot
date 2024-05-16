@@ -21,31 +21,31 @@ let handler = async (m, { conn, participants, groupMetadata }) => {
     groupAdmins.find(p => p.admin === 'superadmin')?.id ||
     m.chat.split`-`[0] + '@s.whatsapp.net'
   let text = `
-┌──「 *INFO GROUP* 」
+┌──「 *INFO DEL GRUPO* 」
 ▢ *♻️ID:*
    • ${groupMetadata.id}
-▢ *🔖NAME* : 
+▢ *🔖NOMBRE* : 
 • ${groupMetadata.subject}
-▢ *👥Members* :
+▢ *👥MIEMBROS* :
 • ${participants.length}
-▢ *🤿Group Owner:*
+▢ *🤿DUEÑO DEL GRUPO:*
 • @${owner.split('@')[0]}
 ▢ *🕵🏻‍♂️Admins:*
  ${listAdmin}
-▢ *🪢 group configuration:*
-• ${isBanned ? '✅' : '❎'} Banned
-• ${welcome ? '✅' : '❎'} Welcome
+▢ *🪢 Configuración del grupo:*
+• ${isBanned ? '✅' : '❎'} Baneado
+• ${welcome ? '✅' : '❎'} Bienvenida
 • ${detect ? '✅' : '❎'} Detector
 • ${del ? '❎' : '✅'} Anti Delete
 • ${antiLink ? '✅' : '❎'} Anti Link WhatsApp
 
-*▢  📬 message settings:*
-• Welcome: ${sWelcome}
-• Farewell: ${sBye}
-• Promoted: ${sPromote}
-• Degraded: ${sDemote}
+*▢  📬 configuración de mensajes:*
+• Bienvenida: ${sWelcome}
+• Despedida: ${sBye}
+• Promovido: ${sPromote}
+• Degradado: ${sDemote}
 
-▢ *📌Description* :
+▢ *📌Descripción* :
    • ${groupMetadata.desc?.toString() || 'unknown'}
 `.trim()
   conn.sendFile(m.chat, pp, 'pp.jpg', text, m, false, {

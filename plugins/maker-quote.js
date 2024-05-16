@@ -8,7 +8,7 @@ import path from 'path'
 let handler = async (m, { conn, text }) => {
   try {
     if (!text && !(m.quoted && m.quoted.text)) {
-      throw `Please provide some text or quote a message to get a response.`
+      throw `Por favor ingresa un texto para hacer una cita`
     }
     if (!text && m.quoted && m.quoted.text) {
       text = m.quoted.text
@@ -21,7 +21,7 @@ let handler = async (m, { conn, text }) => {
         : m.fromMe
           ? conn.user.jid
           : m.sender
-    if (!(who in global.db.data.users)) throw '✳️ The user is not found in my database'
+    if (!(who in global.db.data.users)) throw '✳️ El usuario no está registrado en la base de datos.'
     let userPfp = await conn
       .profilePictureUrl(who, 'image')
       .catch(_ => 'https://cdn.jsdelivr.net/gh/Guru322/api@Guru/guru.jpg')
@@ -93,7 +93,7 @@ let handler = async (m, { conn, text }) => {
       console.error('Error sending sticker:', stickerError)
       m.reply('Error sending sticker. Sending image instead.')
 
-      await conn.sendFile(m.chat, tempImagePath, 'quote.png', 'Here is the quote image:', m)
+      await conn.sendFile(m.chat, tempImagePath, 'quote.png', 'Aquí está la imagen:', m)
     }
 
     fs.unlinkSync(tempImagePath)

@@ -1,6 +1,6 @@
 let handler = async (m, { conn, text, usedPrefix, command }) => {
   let regex = /x/g
-  if (!text) throw 'Give a number to search'
+  if (!text) throw 'Dame un número para buscar'
   if (!text.match(regex)) throw `*Example: ${usedPrefix + command} 91760590201x*`
   let random = text.match(regex).length,
     total = Math.pow(10, random),
@@ -16,7 +16,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     }
   }
   let txt =
-    'Registered\n\n' +
+    'Registrado\n\n' +
     array
       .filter(v => v.exists)
       .map(
@@ -24,7 +24,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
           `• Link: wa.me/${v.jid.split('@')[0]}\n*• Bio:* ${v.status || 'descripiion'}\n*• set on:* ${formatDate(v.setAt)}`
       )
       .join('\n\n') +
-    '\n\n*Not registered*\n\n' +
+    '\n\n*No está registrado*\n\n' +
     array
       .filter(v => !v.exists)
       .map(v => v.jid.split('@')[0])

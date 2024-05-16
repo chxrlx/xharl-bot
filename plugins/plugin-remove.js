@@ -12,14 +12,14 @@ const handler = async (m, { conn, usedPrefix: _p, __dirname, args, text }) => {
 
   if (!ar1.includes(args[0])) {
     return m.reply(
-      `*🗃️ This plugin doesn't exist!*` +
+      `*🗃️ Este plugin no existe!*` +
         `\n•••••••••••••••••••••••••••••••••••••••••••••••••••••••\n\n${ar1.map(v => ' ' + v).join(`\n`)}`
     )
   }
 
   const file = join(__dirname, '../plugins/' + args[0] + '.js')
   unlinkSync(file)
-  conn.reply(m.chat, `⚠️ *_The "plugins/${args[0]}.js" plugin has been deleted._*`, m)
+  conn.reply(m.chat, `⚠️ *_El "plugins/${args[0]}.js" plugin ha sido eliminado._*`, m)
 }
 
 handler.help = ['deleteplugin <name>']

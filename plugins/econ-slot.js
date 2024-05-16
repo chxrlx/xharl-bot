@@ -4,9 +4,9 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
         return conn.reply(m.chat, 'You must be at least level 5 to use this command.', m);
     }*/
 
-  let fa = `🟥 *Provide the amount of gold to bet*
+  let fa = `🟥 Ingresa la cantidad de oro que quieras apostar
 
-*Example :
+*Ejemplo :
 ${usedPrefix + command} 500*`.trim()
   if (!args[0]) throw fa
   if (isNaN(args[0])) throw fa
@@ -15,12 +15,12 @@ ${usedPrefix + command} 500*`.trim()
   let users = global.db.data.users[m.sender]
   let time = users.lastslot + 10000
   if (new Date() - users.lastslot < 10000)
-    throw `⏳ Wait *${msToTime(time - new Date())}* to use again`
-  if (amount < 500) throw `🟥 *You can't bet gold less than 500*`
+    throw `⏳ Espera *${msToTime(time - new Date())}* para usar de nuevo`
+  if (amount < 500) throw `🟥 No puedes apostar menos de 500 de oro`
   if (users.credit < amount) {
-    throw `🟥 *You do not have enough gold to bet*`
+    throw `🟥 No tienes suficiente oro para postar`
   }
-  if (amount > 100000) throw `🟥 *You can't bet gold more than 100000*`
+  if (amount > 100000) throw `🟥 No puedes apostar más de 100000 de oro`
 
   let emojis = ['🕊️', '🦀', '🦎']
   let a = Math.floor(Math.random() * emojis.length)
@@ -46,13 +46,13 @@ ${usedPrefix + command} 500*`.trim()
   }
   let end
   if (a == b && b == c) {
-    end = `🎊 *Jackpot!* You won ${amount + amount} gold`
+    end = `🎊 *Jackpot!* Ganaste ${amount + amount} de oro`
     users.credit += amount + amount
     // } else if (a == b || a == c || b == c) {
     //     end = `You lost  *₹${amount}*\n*But you almost made it keep trying*`
     //     users.credit -= amount
   } else {
-    end = `      You lost ${amount} gold`
+    end = `      Perdiste ${amount} de oro`
     users.credit -= amount
   }
   users.lastslot = new Date() * 1

@@ -9,11 +9,11 @@ import os from 'os'
 const streamPipeline = promisify(pipeline)
 
 const handler = async (m, { conn, command, text, args, usedPrefix }) => {
-  if (!text) throw `give a text to search Example: *${usedPrefix + command}* sefali odia song`
+  if (!text) throw `ingresa un texto para buscar Ejemplo: *${usedPrefix + command}* Natanael Cano`
   conn.GURUPLAY = conn.GURUPLAY ? conn.GURUPLAY : {}
   await conn.reply(m.chat, wait, m)
   const result = await searchAndDownloadMusic(text)
-  const infoText = `✦ ──『 *GURU PLAYER* 』── ⚝ \n\n [ ⭐ Reply the number of the desired search result to get the Audio]. \n\n`
+  const infoText = `✦ ──『 *XHARL PLAYER* 』── ⚝ \n\n [ ⭐ Responde con el número del resultado de búsqueda deseado para obtener el audio.]. \n\n`
 
   const orderedLinks = result.allLinks.map((link, index) => {
     const sectionNumber = index + 1
@@ -72,7 +72,7 @@ handler.before = async (m, { conn }) => {
     await conn.sendMessage(m.chat, doc, { quoted: m })
   } else {
     m.reply(
-      'Invalid sequence number. Please select the appropriate number from the list above.\nBetween 1 to ' +
+      'Número de secuencia inválido. Por favor, selecciona el número apropiado de la lista de arriba.\nEntre 1 y ' +
         result.allLinks.length
     )
   }
@@ -96,7 +96,7 @@ function formatBytes(bytes, decimals = 2) {
 async function searchAndDownloadMusic(query) {
   try {
     const { videos } = await yts(query)
-    if (!videos.length) return 'Sorry, no video results were found for this search.'
+    if (!videos.length) return 'Sorry, no se encontraron resultados de videos para esta búsqueda.'
 
     const allLinks = videos.map(video => ({
       title: video.title,

@@ -10,7 +10,7 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
   let q = m.quoted ? m.quoted : m
   let mime = (q.msg || q).mimetype || q.mediaType || ''
   if (/video/g.test(mime)) {
-    return m.reply('video files not supported!')
+    return m.reply('Archivos de video no son compatibles!')
   }
   if (!/webp|image|viewOnce/g.test(mime))
     return m.reply(`Reply media with\n${usedPrefix + command}`)
@@ -41,7 +41,7 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
         await fetch('https://api.ocr.space/parse/imageurl?apikey=K88889328888957&url=' + out)
       ).json()
     }
-    await m.reply('*OCR RESULT*\n\n' + res.ParsedResults[0].ParsedText)
+    await m.reply('*Resultado de OCR*\n\n' + res.ParsedResults[0].ParsedText)
   } catch (e) {
     throw `some error occured!\n\n${e}`
   }

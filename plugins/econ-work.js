@@ -4,7 +4,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
   let earn = Math.floor(Math.random() * 2000)
   let time = global.db.data.users[m.sender].lastwork + 600000
   if (new Date() - global.db.data.users[m.sender].lastwork < 600000)
-    throw `⏱️ You cannot work for ${msToTime(time - new Date())}`
+    throw `⏱️ No puedes trabajar por ${msToTime(time - new Date())}`
 
   let anu = (await axios.get('https://raw.githubusercontent.com/Amrit9304/work/main/work.json'))
     .data
@@ -12,7 +12,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
   global.db.data.users[m.sender].credit += earn
 
   m.reply(`
-‣ ${res.wrk} ${earn} gold
+‣ ${res.wrk} ${earn} oro
 `)
   global.db.data.users[m.sender].lastwork = new Date() * 1
 }
@@ -34,7 +34,7 @@ function msToTime(duration) {
   minutes = minutes < 10 ? '0' + minutes : minutes
   seconds = seconds < 10 ? '0' + seconds : seconds
 
-  return minutes + ' minutes ' + seconds + ' seconds'
+  return minutes + ' minutos ' + seconds + ' segundos'
 }
 function pickRandom(list) {
   return list[Math.floor(list.length * Math.random())]

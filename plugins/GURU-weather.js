@@ -1,6 +1,6 @@
 import axios from 'axios'
 let handler = async (m, { args }) => {
-  if (!args[0]) throw '*Give a place to search*'
+  if (!args[0]) throw '*Ingresa un lugar para buscar*'
   try {
     const response = axios.get(
       `https://api.openweathermap.org/data/2.5/weather?q=${args}&units=metric&appid=060a6bcfa19809c2cd4d97a212b19273`
@@ -14,7 +14,7 @@ let handler = async (m, { args }) => {
     const Maximum_Temperature = res.data.main.temp_max + '°C'
     const Humidity = res.data.main.humidity + '%'
     const Wind = res.data.wind.speed + 'km/h'
-    const wea = `「 📍 」PLACE: ${name}\n「 🗺️ 」COUNTRY: ${Country}\n「 🌤️ 」VIEW: ${Weather}\n「 🌡️ 」TEMPERATURE: ${Temperature}\n「 💠 」 MINIMUM TEMPERATURE: ${Minimum_Temperature}\n「 📛 」 MAXIMUM TEMPERATURE: ${Maximum_Temperature}\n「 💦 」HUMIDITY: ${Humidity}\n「 🌬️ 」 WINDSPEED: ${Wind}`
+    const wea = `「 📍 」LUGAR: ${name}\n「 🗺️ 」PAÍS: ${Country}\n「 🌤️ 」VISTA: ${Weather}\n「 🌡️ 」TEMPERATURA: ${Temperature}\n「 💠 」 TEMPERATURA MÍNIMA: ${Minimum_Temperature}\n「 📛 」 TEMPERATURA MÁXIMA: ${Maximum_Temperature}\n「 💦 」HUMEDAD: ${Humidity}\n「 🌬️ 」 VELOCIDAD DEL VIENTO: ${Wind}`
     m.reply(wea)
   } catch {
     return '*ERROR*'
