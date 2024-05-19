@@ -3,7 +3,25 @@ import chalk from 'chalk'
 import { fileURLToPath } from 'url'
 import fs from 'fs'
 
-global.owner = [['524921425305', 'Charly', true], ['524922554228', 'Bot', true], ['']] //Number of owners
+import dotenv from 'dotenv'
+dotenv.config()
+
+const ownervb = process.env.OWNERS;
+if (!ownervb) {
+    throw new Error("OWNERS env is not set");
+}
+
+const ownerlist = ownervb.split(';');
+
+global.owner = [];
+for (let i = 0; i < ownerlist.length; i += 2) {
+    const owner = [
+        ownerlist[i],            
+        ownerlist[i + 1],         
+        true                        
+    ];
+    global.owner.push(owner);
+}
 
 //global.pairingNumber = "" //put your bot number here
 
@@ -53,7 +71,7 @@ global.APIKeys = {
 }
 
 // Sticker WM
-global.botname = 'Xharl-Bot'
+global.botname = process.env.BOTNAME
 global.premium = 'true'
 global.packname = 'XHARL┃ᴮᴼᵀ'
 global.author = 'xharl'
