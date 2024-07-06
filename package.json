@@ -10,8 +10,8 @@
         "plugins": "plugins"
     },
     "engines": {
-        "node": ">=20.0.0" 
-      },
+        "node": ">=20.0.0"
+    },
     "scripts": {
         "start": "node index.js",
         "test": "node test.js"
@@ -106,6 +106,7 @@
         "wa-sticker-formatter": "^4.3.2",
         "xfarr-api": "^1.0.3",
         "yargs": "^17.6.0",
+        "youtube-dl": "^3.5.0",
         "youtube-yts": "^2.0.0",
         "youtubedl-core": "npm:@distube/ytdl-core"
     },
