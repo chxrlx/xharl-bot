@@ -1,4 +1,4 @@
-FROM node:22-alpine
+FROM node:lts-buster
 
 RUN apt-get update && \
   apt-get install -y \
