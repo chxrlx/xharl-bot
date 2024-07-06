@@ -6,6 +6,10 @@ RUN apt-get update && \
   ffmpeg \
   imagemagick \
   webp \
+  software-properties-common && \
+  add-apt-repository ppa:deadsnakes/ppa && \
+  apt-get update && \
+  apt-get install -y \
   python3.8 \
   python3-pip && \
   apt-get upgrade -y && \
