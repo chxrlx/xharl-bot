@@ -375,7 +375,7 @@ async function connectionUpdate(update) {
   if (connection === 'open') {
     const { jid, name } = conn.user
 
-    let msgf = `Hai🤩${name} Congrats you have successfully deployed GURU-BOT\nJoin my support Group for any Query\n https://chat.whatsapp.com/F3sB3pR3tClBvVmlIkqDJp`
+    let msgf = `Hola ${name},has desplegado exitósamente el bot.\nDisfruta de la experiencia.`
 
     let gmes = conn.sendMessage(
       jid,
@@ -392,7 +392,7 @@ async function connectionUpdate(update) {
   }
 
   if (connection == 'close') {
-    conn.logger.error(chalk.yellow(`\nconnection closed....Get a New Session`))
+    conn.logger.error(chalk.yellow(`\nconexión cerrada... Obteniendo una nueva sesión.`))
   }
 }
 
