@@ -375,7 +375,7 @@ async function connectionUpdate(update) {
   if (connection === 'open') {
     const { jid, name } = conn.user
 
-    let msgf = `Hola ${name},has desplegado exitósamente el bot.\nDisfruta de la experiencia.`
+    let msgf = `Hola, ${name}, has desplegado exitósamente el bot.\nDisfruta de la experiencia.`
 
     let gmes = conn.sendMessage(
       jid,
