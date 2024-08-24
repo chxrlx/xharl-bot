@@ -61,7 +61,7 @@ async function main() {
   const txt = process.env.SESSION_ID
 
   if (!txt) {
-    console.error('No se encontró la variable de entorno SESSION_ID.')
+    console.error('Environment variable not found.')
     return
   }
 
@@ -103,7 +103,7 @@ async function gandu() {
       process.exit(1)
     } else {
       console.log(`${endi}`)
-      console.log(chalk.bgBlack(chalk.redBright('Inicializando Xharl-Bot...')))
+      console.log(chalk.bgBlack(chalk.redBright('initializing Guru Bot')))
     }
   } catch (error) {
     console.error('Error:', error)
@@ -213,10 +213,10 @@ global.loadDatabase = async function loadDatabase() {
 loadDatabase()
 global.authFolder = `session`
 const { state, saveCreds } = await useMultiFileAuthState(global.authFolder)
-let { version, isLatest } = await fetchLatestWaWebVersion()
+//let { version, isLatest } = await fetchLatestWaWebVersion()
 
 const connectionOptions = {
-  version,
+  version: [2, 3000, 1015901307],
   logger: Pino({
     level: 'fatal',
   }),
@@ -277,7 +277,7 @@ if (pairingCode && !conn.authState.creds.registered) {
 
     if (!Object.keys(PHONENUMBER_MCC).some(v => phoneNumber.startsWith(v))) {
       console.log(
-        chalk.bgBlack(chalk.redBright("Empieza con el código de WhatsApp de tu país, Ejemplo: 52xxx"))
+        chalk.bgBlack(chalk.redBright("Start with your country's WhatsApp code, Example : 62xxx"))
       )
       process.exit(0)
     }
@@ -289,7 +289,7 @@ if (pairingCode && !conn.authState.creds.registered) {
 
     if (!Object.keys(PHONENUMBER_MCC).some(v => phoneNumber.startsWith(v))) {
       console.log(
-        chalk.bgBlack(chalk.redBright("Empieza con el código de WhatsApp de tu país, Ejemplo: 52xxx"))
+        chalk.bgBlack(chalk.redBright("Start with your country's WhatsApp code, Example : 62xxx"))
       )
 
       phoneNumber = await question(
@@ -304,12 +304,12 @@ if (pairingCode && !conn.authState.creds.registered) {
     let code = await conn.requestPairingCode(phoneNumber)
     code = code?.match(/.{1,4}/g)?.join('-') || code
     const pairingCode =
-      chalk.bold.greenBright('Tu código de emparejamiento:') + ' ' + chalk.bgGreenBright(chalk.black(code))
+      chalk.bold.greenBright('Your Pairing Code:') + ' ' + chalk.bgGreenBright(chalk.black(code))
     console.log(pairingCode)
   }, 3000)
 }
 
-conn.logger.info('\nEsperando para iniciar sesión\n')
+conn.logger.info('\nWaiting For Login\n')
 
 if (!opts['test']) {
   if (global.db) {
@@ -329,10 +329,10 @@ if (opts['server']) (await import('./server.js')).default(global.conn, PORT)
 function runCleanup() {
   clearTmp()
     .then(() => {
-      console.log('Archivos temporales eliminados con éxito.')
+      console.log('Temporary file cleanup completed.')
     })
     .catch(error => {
-      console.error('Ocurrió un error durante la eliminación de los archivos temporales:', error)
+      console.error('An error occurred during temporary file cleanup:', error)
     })
     .finally(() => {
       // 2 minutes
@@ -364,18 +364,18 @@ async function connectionUpdate(update) {
     conn.logger.info(await global.reloadHandler(true).catch(console.error))
   }
   if (code && code == DisconnectReason.restartRequired) {
-    conn.logger.info(chalk.yellow('\n🚩Se requiere reinicio... Reiniciando'))
+    conn.logger.info(chalk.yellow('\n🚩Restart Required... Restarting'))
     process.send('reset')
   }
 
   if (global.db.data == null) loadDatabase()
   if (!pairingCode && useQr && qr != 0 && qr != undefined) {
-    conn.logger.info(chalk.yellow('\nIniciando sesión...'))
+    conn.logger.info(chalk.yellow('\nLogging in....'))
   }
   if (connection === 'open') {
     const { jid, name } = conn.user
 
-    let msgf = `Hola, ${name}, has desplegado exitósamente el bot.\nDisfruta de la experiencia.`
+    let msgf = `Hai🤩${name} Congrats you have successfully deployed GURU-BOT\nJoin my support Group for any Query\n https://chat.whatsapp.com/F3sB3pR3tClBvVmlIkqDJp`
 
     let gmes = conn.sendMessage(
       jid,
@@ -388,11 +388,11 @@ async function connectionUpdate(update) {
       }
     )
 
-    conn.logger.info(chalk.yellow('\n🚩 L I S T O'))
+    conn.logger.info(chalk.yellow('\n🚩 R E A D Y'))
   }
 
   if (connection == 'close') {
-    conn.logger.error(chalk.yellow(`\nconexión cerrada... Obteniendo una nueva sesión.`))
+    conn.logger.error(chalk.yellow(`\nconnection closed....Get a New Session`))
   }
 }
 
@@ -429,18 +429,18 @@ global.reloadHandler = async function (restatConn) {
     conn.ev.off('creds.update', conn.credsUpdate)
   }
 
-  conn.welcome = `¡Hola @user!\n\n🎉 *¡BIENVENIDO/A* al grupo @group!\n\n📜 Por favor, lee la *DESCRIPCIÓN* @desc.`
-  conn.bye = `👋 ¡HASTA LUEGO, @user!\n\n¡Nos vemos!`
-  conn.spromote = `¡@user ha sido ascendido/a a administrador/a!`
-  conn.sdemote = `@user ya no es administrador/a.`
-  conn.sDesc = `La descripción del grupo ha sido actualizada a:\n@desc`
-  conn.sSubject = `El nombre del grupo ha sido cambiado a:\n@group`
-  conn.sIcon = `¡El ícono del grupo ha sido actualizado!`
-  conn.sRevoke = `El enlace del grupo ha sido cambiado a:\n@revoke`
-  conn.sAnnounceOn = `¡El grupo ahora está *CERRADO*!\nSolo los administradores pueden enviar mensajes.`
-  conn.sAnnounceOff = `¡El grupo ahora está *ABIERTO*!\nTodos los participantes pueden enviar mensajes.`
-  conn.sRestrictOn = `Editar Información del Grupo ahora está restringido solo a administradores.`
-  conn.sRestrictOff = `Editar Información del Grupo ahora está disponible para todos los participantes.`
+  conn.welcome = ` Hello @user!\n\n🎉 *WELCOME* to the group @group!\n\n📜 Please read the *DESCRIPTION* @desc.`
+  conn.bye = `👋GOODBYE @user \n\nSee you later!`
+  conn.spromote = `*@user* has been promoted to an admin!`
+  conn.sdemote = `*@user* is no longer an admin.`
+  conn.sDesc = `The group description has been updated to:\n@desc`
+  conn.sSubject = `The group title has been changed to:\n@group`
+  conn.sIcon = `The group icon has been updated!`
+  conn.sRevoke = ` The group link has been changed to:\n@revoke`
+  conn.sAnnounceOn = `The group is now *CLOSED*!\nOnly admins can send messages.`
+  conn.sAnnounceOff = `The group is now *OPEN*!\nAll participants can send messages.`
+  conn.sRestrictOn = `Edit Group Info has been restricted to admins only!`
+  conn.sRestrictOff = `Edit Group Info is now available to all participants!`
 
   conn.handler = handler.handler.bind(global.conn)
   conn.pollUpdate = handler.pollUpdate.bind(global.conn)
@@ -576,7 +576,7 @@ async function _quickTest() {
 async function saafsafai() {
   if (stopped === 'close' || !conn || !conn.user) return
   clearsession()
-  console.log(chalk.cyanBright('\nSesiones eliminadas con éxito.'))
+  console.log(chalk.cyanBright('\nStored Sessions Cleared'))
 }
 
 setInterval(saafsafai, 10 * 60 * 1000)
