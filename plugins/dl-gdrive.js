@@ -1,4 +1,4 @@
-import fg from 'api-dylux'
+/* import fg from 'api-dylux'
 let handler = async (m, { conn, args, usedPrefix, command }) => {
   if (!args[0]) throw `✳️ Ingresa un link de Google Drive`
   m.react(rwait)
@@ -27,4 +27,5 @@ handler.command = ['gdrive']
 handler.credit = true
 handler.premium = true
 
-export default handler
+export default handler  */
+

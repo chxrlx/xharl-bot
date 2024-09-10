@@ -1,4 +1,4 @@
-import fg from 'api-dylux'
+import fetch from "node-fetch"
 
 const handler = async (m, { conn, args, usedPrefix, command }) => {
   if (!args[0]) {
@@ -11,16 +11,18 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
     throw '⚠️ POR FAVOR INGRESA UN LINK VÁLIDO'
   }
 
+  let url = `https://api.guruapi.tech/fbvideo?url=${args[0]}`
+
   m.react(rwait)
 
   try {
-    const result = await fg.fbdl(args[0])
+    const result = await fetch(url)
     const tex = `
 ⊱ ─── {* GURU FBDL*} ─── ⊰
-↳ *VIDEO TITLE:* ${result.title}
+↳ *VIDEO TITLE:* ${result.result.title}
 ⊱ ────── {⋆♬⋆} ────── ⊰`
 
-    const response = await fetch(result.videoUrl)
+    const response = await fetch(result.result.hd)
     const arrayBuffer = await response.arrayBuffer()
     const videoBuffer = Buffer.from(arrayBuffer)
 
