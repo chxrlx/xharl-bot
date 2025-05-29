@@ -22,6 +22,7 @@ let handler = async (m, { conn, text, args, usedPrefix, command }) => {
 handler.help = ['encuesta pregunta|opcion|opcion']
 handler.tags = ['group']
 handler.command = /^en(c((c?uesta|cs)|c)|cs?)$/i;
+handler.desc = 'Create a poll in the group chat. Format: question|option1|option2|...'
 
 export default handler
 

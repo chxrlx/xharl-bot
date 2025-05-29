@@ -43,6 +43,7 @@ Si recibes *${war}* advertencias, serás eliminado automáticamente del grupo`,
 handler.help = ['warn @user']
 handler.tags = ['group']
 handler.command = ['warn']
+handler.desc = 'Warn a user'
 handler.group = true
 handler.admin = true
 handler.botAdmin = true

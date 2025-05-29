@@ -21,8 +21,6 @@ for (let i = 0; i < ownerlist.length; i += 2) {
     global.owner.push(owner);
 }
 
-//global.pairingNumber = "" //put your bot number here
-
 global.mods = ['524921425305', '524922554228']
 global.prems = ['524921425305', '524922554228']
 global.allowed = ['524921425305', '524922554228']
@@ -70,16 +68,8 @@ global.APIKeys = {
 
 // Sticker WM
 global.botname = process.env.BOTNAME
-global.premium = 'true'
 global.packname = 'XHARL┃ᴮᴼᵀ'
 global.author = 'xharl'
-global.menuvid = 'https://i.imgur.com/AjDzGgG.mp4'
-global.igfg = '▢ Follow on Instagram\nhttps://www.instagram.com/guru.json\n'
-global.dygp = 'https://chat.whatsapp.com/F3sB3pR3tClBvVmlIkqDJp'
-global.fgsc = 'https://github.com/Guru322/GURU-BOT'
-global.fgyt = 'https://youtube.com/@Asliguru'
-global.fgpyp = 'https://youtube.com/@Asliguru'
-global.fglog = 'https://raw.githubusercontent.com/Guru322/api/Guru/guru.jpg'
 global.thumb = fs.readFileSync('./Assets/Gurulogo.jpg')
 
 global.wait = '*⌛ _Cargando..._*\n*▰▰▰▱▱▱▱▱*'
